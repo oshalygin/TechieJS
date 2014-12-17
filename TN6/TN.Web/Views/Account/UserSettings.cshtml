@@ -1,0 +1,160 @@
+﻿@model SP.BLL.UserPropertiesViewModel
+@{
+    ViewBag.Title = "UserSettings";
+    Layout = "~/Views/Shared/_ProfilePartialLayout.cshtml";
+}
+
+<div class="tab-content">
+    <div id="profile" class="profile-edit tab-pane fade in active">
+        <h2 class="heading-md">Manage your account</h2>
+        <p>Below are the name and email addresses on file for your account.</p>
+
+        <br />
+        @using (Html.BeginForm("UserSettings", "Account", FormMethod.Post, new { @class = "sky-form", role = "form", id = "userSettings" }))
+        {
+            @Html.AntiForgeryToken()
+            <dl class="dl-horizontal">
+                <dt>@Html.LabelFor(m => m.UserName) </dt>
+                <dd>
+                    <section>
+                        <span>
+                            @Html.DisplayFor(m => m.UserName, new { @class = "form-control" })
+                        </span>
+
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.Email)</dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.Email, new { @class = "form-control" })
+                        </span>
+
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email)
+                            </span>
+
+                        </label>
+                    </section>
+                </dd>
+                <dt>@Html.LabelFor(m => m.FirstName) </dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.FirstName, new { @class = "form-control" })
+                        </span>
+
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.FirstName)
+                            </span>
+                        </label>
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.LastName)</dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.LastName, new { @class = "form-control" })
+                        </span>
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.LastName)
+                            </span>
+                        </label>
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.Gender) </dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.Gender, new { @class = "form-control" })
+                        </span>
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.DropDownListFor(m => m.Gender, SP.BLL.StaticLists.GenderListItems(), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Gender)
+                            </span>
+                        </label>
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.Age)  </dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.Age, new { @class = "form-control" })
+                        </span>
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.EditorFor(m => m.DateOfBirth, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.DateOfBirth)
+                            </span>
+
+                        </label>
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.Company) </dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.Company, new { @class = "form-control" })
+                        </span>
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.TextBoxFor(m => m.Company, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Company)
+                            </span>
+                        </label>
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.State) </dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.State, new { @class = "form-control" })
+                        </span>
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.DropDownListFor(m => m.State, SP.BLL.StaticLists.StateListItems(), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.State)
+                            </span>
+                        </label>
+                    </section>
+                </dd>
+
+                <dt>@Html.LabelFor(m => m.Phone) </dt>
+                <dd>
+                    <section>
+                        <span class="display">
+                            @Html.DisplayFor(m => m.Phone, new { @class = "form-control" })
+                        </span>
+                        <label class="input">
+                            <span class="editor" style="display:none">
+                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Phone)
+                            </span>
+                        </label>
+                    </section>
+                </dd>
+
+            </dl>
+            <div id="formControls">
+                <button type="button" class="btn-u btn-u-green" style="width:150px" id="editButton" onclick="switchFields()">Edit</button>
+                <button type="button" class="btn-u btn-u-red" id="cancelButton" onclick="switchFields()" style="display: none; width: 150px">Cancel</button>
+                <button type="submit" class="btn-u" style="width: 150px">Save Changes</button>
+
+                @Html.ValidationSummary()
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    
+    <link href="~/Content/css/pages/page_coming_soon.css" rel="stylesheet" />
+    <!-- CSS Theme -->
+
+    <link rel="stylesheet" href="~/Content/css/themes/blue.css" id="style_color">
+
+
+</head>
+<body class="coming-soon-page">
+
+    <div class="coming-soon-border"></div>
+
+    <!--=== Content Part ===-->
+    <div class="container">
+        <!-- Coming Soon Content -->
+        <div class="row">
+            <div class="col-md-12 coming-soon">
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- Coming Soon Plugn -->
+        <div class="coming-soon-plugin">
+            <div id="defaultCountdown"></div>
+        </div>
+
+
+        <!-- Coming Soon Footer -->
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="social-icons">
+                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
+                    <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
+                    <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
+                    <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
+                    <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
+                    <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
+                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="coming-soon-copyright">
+                    <p>2014 © TeckNotes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=== End Content Part ===-->
+</body>
+</html>

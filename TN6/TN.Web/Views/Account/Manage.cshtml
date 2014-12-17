@@ -1,0 +1,17 @@
+﻿@using TN.BLL;
+@using Microsoft.AspNet.Identity;
+
+
+    
+
+@{
+    ViewBag.Title = "Manage Settings";
+    Layout = "~/Views/Shared/_ProfilePartialLayout.cshtml";
+}
+
+<div class="tab-content">
+    @Html.Action("UserPropertiesList")
+    @Html.Partial("_PasswordSettings")
+    @Html.Partial("_NotificationSettings")
+</div>
+

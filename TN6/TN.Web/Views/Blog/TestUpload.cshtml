@@ -1,0 +1,20 @@
+﻿
+
+@{
+    ViewBag.Title = "TestUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TestUpload</h2>
+
+
+@using (Html.BeginForm("UploadPhoto", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    
+    <input type="file" name="file" id="file" />
+
+    <input type="submit" value="Upload" />
+
+}

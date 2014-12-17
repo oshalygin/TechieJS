@@ -1,0 +1,29 @@
+﻿@model TN.Models.AnonymousSubscription
+
+@{
+    ViewBag.Title = "Community Index";
+    Layout = "~/Views/Shared/_ComingSoonLayout.cshtml";
+}
+
+<h1>Coming Soon!</h1>
+<p>The community portion of the site is under construction and will be ready as soon as we've made it perfect! Feel free to leave your email address and we will keep you updated with the ongoing effort.</p><br>
+@using (Html.BeginForm("Index", "Community", FormMethod.Post, new { id = "subscription" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="input-group col-md-4 col-md-offset-4">
+
+        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", placeholder = "Email Address" })
+        
+        
+
+        <span class="input-group-btn">
+            <button class="btn-u" type="submit">Subscribe</button>
+        </span>
+        
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    
+    <div>@Html.ValidationMessageFor(m => m.EmailAddress, string.Empty, new { style = "color:white" })</div>
+}

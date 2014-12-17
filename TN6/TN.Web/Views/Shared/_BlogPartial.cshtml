@@ -1,0 +1,157 @@
+﻿@using TN.BLL;
+@using Microsoft.AspNet.Identity;
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="~/Content/css/pages/blog_magazine.css">
+<link href="~/Content/css/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/plugins/sky-forms/custom-sky-forms.css" rel="stylesheet" />
+
+
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row blog-page blog-item">
+        <!-- Left Sidebar -->
+        <div class="col-md-9 md-margin-bottom-60">
+            <!--Blog Post-->
+            <div class="blog margin-bottom-40">
+                @RenderBody()
+
+            </div>
+
+
+
+            <div id="results"></div>
+
+
+
+        </div>
+        <!-- End Left Sidebar -->
+        <!-- Right Sidebar -->
+        <div class="col-md-3 magazine-page">
+            <!-- Search Bar -->
+            <div class="headline headline-md"><h4>Search the Blog</h4></div>
+            <div class="input-group margin-bottom-40">
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-btn">
+                    <button class="btn-u" type="button">Go</button>
+                </span>
+            </div>
+            <!-- End Search Bar -->
+            <!-- Blog Latest Tweets -->
+            <div class="blog-twitter margin-bottom-40" id="twitterFeed">
+                <div class="headline headline-md"><h4>Latest Tweets</h4></div>
+
+
+
+            </div>
+            <!-- End Blog Latest Tweets -->
+            <!-- Blog Tags -->
+            <div class="headline headline-md"><h4>Common Tags</h4></div>
+            @{ Html.RenderAction("MostCommonTags", "Partial");}
+            <!-- End Blog Tags -->
+
+
+        </div>
+        <!-- End Right Sidebar -->
+    </div><!--/row-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@section appInit{
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/index.js"></script>
+
+    <script src="~/Scripts/twitter-text.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            $.ajax({
+                url: '@Url.Action("GetTwitterFeed", "Twitter")',
+                data: {},
+                type: "POST",
+                contentType: "application/json",
+                dataType: "json",
+                timeout: 10000,
+                success: function (result) {
+                    if (result.hasOwnProperty("d")) {
+                        bindTweets(result.d);
+                    } else {
+                        bindTweets(result);
+                    }
+
+                },
+                error: function (xhr, status) {
+                    alert(status + " - " + xhr.responseText);
+                }
+            });
+
+
+            function bindTweets(result) {
+                var json = $.parseJSON(result);
+
+
+
+
+                for (var i = 0; i < json.length; i++) {
+
+
+                    //Time Calculation for displaying in " ago " format...
+                    //Parse the twitter date into a raw UTC value.
+                    var time = Date.parse(json[i].created_at);
+
+
+                    var timeDifference = (new Date() - time) / 1000;
+                    var units = ['second', 'minute', 'hour', 'day', 'week'];
+                    var maximumValues = [60, 60, 24, 7];
+                    for (var unitIndex = 0; timeDifference > maximumValues[unitIndex] && unitIndex < units.length; unitIndex++) {
+                        timeDifference /= maximumValues[unitIndex];
+                    }
+                    timeDifference = parseInt(timeDifference);
+                    var unit = units[unitIndex];
+                    if (timeDifference > 1) {
+                        unit += 's';
+                    }
+                    var timeAgo = timeDifference + ' ' + unit + ' ago';
+
+                    //End of Conversion
+
+
+                    $("#twitterFeed").append('<div class="blog-twitter-inner"><i class="fa fa-twitter"></i> <a href="https://twitter.com/oshalygin">@@oshalygin</a>    ' + twttr.txt.autoLink(json[i].text) + '<br />  <span><strong>' + timeAgo + '</strong></span>');
+
+                    try {
+                        for (var j = 0; j < json[i].entities.media.length; j++) {
+                            $("#results").append('<a href="' + json[i].entities.media[j].media_url + '" ><img src="' + json[i].entities.media[j].media_url + ':thumb" /></a>');
+                        }
+
+                    } catch (e) {
+                    }
+                }
+            }
+
+
+        });
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+
+
+
+
+}

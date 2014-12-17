@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section TopScripts{
+
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+    <link rel="stylesheet" href="~/Scripts/plugins/flexslider/flexslider.css">
+    <link rel="stylesheet" href="~/Scripts/plugins/bxslider/jquery.bxslider.css">
+    <link rel="stylesheet" href="~/Scripts/plugins/layer_slider/css/layerslider.css">
+}
+
+
+
+<!--=== Slider ===-->
+<div class="boxed-layout container">
+    <div class="layer_slider ">
+        <div id="layerslider-container-fw">
+            <div id="layerslider" style="width: 100%; height: 500px; margin: 0px auto; ">
+
+                <div class="ls-layer" style="slidedirection: right; transition2d: 24,25,27,28; ">
+                    <img src="~/Content/img/wallpaperOne.jpg" class="ls-bg" alt="Slide background">
+                </div>
+                <div class="ls-layer" style="slidedirection: top; ">
+                    <img src="~/Content/img/WallpaperTwo.png" class="ls-bg" alt="Slide background">
+                </div>
+                <div class="ls-layer" style="slidedirection: right; transition2d: 92,93,105; ">
+                    <img src="~/Content/img/wallpaper10.png" class="ls-bg" alt="Slide background">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=== End Slider ===-->
+
+<div class="container content">
+    <div class="margin-bottom-10"></div>
+    <!-- Service Blocks -->
+    <div class="row content-boxes-v2 margin-bottom-30">
+        <div class="col-md-4 md-margin-bottom-30">
+            <h2 class="heading-sm">
+                <a class="link-bg-icon" href="#">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-dark fa fa-compress"></i>
+                    <span>Front-End Development</span>
+                </a>
+            </h2>
+            <p class="text-justify">An interactive and responsive client experience that utilizes HTML5, CSS3, jQuery, JavaScript, SignalR and AJAX. </p>
+        </div>
+        <div class="col-md-4 md-margin-bottom-30">
+            <h2 class="heading-sm">
+                <a class="link-bg-icon" href="#">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-dark fa fa-html5"></i>
+                    <span>Back-End Development</span>
+                </a>
+            </h2>
+            <p class="text-justify">The backend is carefully crafted to ensure an efficient design with seamless integration of C#, MVC 5, and the ASP.NET framework.</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="heading-sm">
+                <a class="link-bg-icon" href="#">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-dark icon-line icon-rocket"></i>
+                    <span>Database Driven</span>
+                </a>
+            </h2>
+            <p class="text-justify">The database is optimized for efficiency and security.  Utilizing a database approach that is specific to to the projects needs: MongoDB, MySQL or SQL Server</p>
+        </div>
+    </div>
+
+
+    <div class="row content-boxes-v2 margin-bottom-30">
+        <div class="col-md-4 md-margin-bottom-30">
+            <h2 class="heading-sm">
+                <a class="link-bg-icon" href="#">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-dark icon-line icon-support"></i>
+                    <span>Cohesive Team</span>
+                </a>
+            </h2>
+            <p class="text-justify">A closely knit team of professional designers and programmers that are passionate about producing a top-notch solution</p>
+        </div>
+        <div class="col-md-4 md-margin-bottom-30">
+            <h2 class="heading-sm">
+                <a class="link-bg-icon" href="#">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-dark fa fa-thumbs-o-up"></i>
+                    <span>iOS and Android Applications</span>
+                </a>
+            </h2>
+            <p class="text-justify">Building mobile applications to serve the needs of users and business </p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="heading-sm">
+                <a class="link-bg-icon" href="#">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-dark icon-line icon-present"></i>
+                    <span>Learning Experience</span>
+                </a>
+            </h2>
+            <p class="text-justify">Mastering various technologies of the web to develop and grow.</p>
+        </div>
+    </div>
+
+
+
+    <div class="row margin-bottom-20">
+        <!-- Welcome Block -->
+        <div class="col-md-8 md-margin-bottom-40">
+            <div class="headline"><h2>Welcome To Teck Notes</h2></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="img-responsive margin-bottom-20" src="~/Content/img/codingFront.png" width="400" height="150" alt="" />
+                </div>
+
+                <div class="col-sm-8">
+                    <p>Teck Notes welcomes you on a journey in developing the web and technical world! The following are the goals:</p>
+                    <ul class="list-unstyled margin-bottom-20">
+                        <li><i class="fa fa-check color-green"></i> Learn</li>
+                        <li><i class="fa fa-check color-green"></i> Improve</li>
+                        <li><i class="fa fa-check color-green"></i> Master</li>
+                        <li><i class="fa fa-check color-green"></i> Have Fun!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <blockquote class="hero-unify">
+                <p>"The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency. "</p>
+                <small>Bill Gates</small>
+            </blockquote>
+        </div>
+        <!--Tech Trends -->
+        <div class="col-md-4 md-margin-bottom-20">
+            <div class="headline"><h2>Tech Trends</h2></div>
+            <div id="myCarousel" class="carousel slide carousel-v1">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="~/Content/img/trendOne.jpg" alt="">
+                        <div class="carousel-caption">
+                            <p>Making quantum connections: The speed of information in a spin network</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/img/trendTwo.jpg" alt="">
+                        <div class="carousel-caption">
+                            <p>Protecting privacy online: New system would give individuals more control over shared digital data</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/img/trendThree.jpg" alt="">
+                        <div class="carousel-caption">
+                            <p>Speeding up data storage by a thousand times with 'spin current'</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-arrow">
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div><!--/col-md-4-->
+    </div><!--/row-->
+    <!-- End Info Blokcs -->
+
+</div><!--/container-->
+<!-- End Content Part -->
+@section scripts{
+
+    @Scripts.Render("~/bundles/sliders")
+}
+
+@section appInit{
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/index.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            App.initSliders();
+            App.initBxSlider();
+            Index.initLayerSlider();
+        });
+    </script>
+}

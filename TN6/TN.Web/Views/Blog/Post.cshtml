@@ -1,0 +1,14 @@
+﻿@using TN.Models
+@model TN.Models.Post
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_BlogPartial.cshtml";
+}
+
+@RenderPost.Render(Model, Html, true)
+
+
+
+@{ Html.RenderAction("NewComment", "Blog", new { postId = Model.Id }); }
+

@@ -1,0 +1,12 @@
+/* Float */
+@mixin float {
+	display: inline-block;
+	transition-duration: $defauldduration;
+	transition-property: transform;
+
+	@include hacks();
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+}

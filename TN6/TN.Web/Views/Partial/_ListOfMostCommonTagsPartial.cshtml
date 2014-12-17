@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+<ul class="list-unstyled blog-tags margin-bottom-30">
+    @foreach (Tag tag in ViewBag.ListOfTags)
+    {
+        <li>
+            <i class="fa fa-tags"></i>
+            @Html.ActionLink(tag.Name + " ", "Tags", "Blog", new { tagName = tag.Name }, null)
+            </li>
+    }
+    
+    
+    @*<li>
+        <i class="fa fa-tags"></i>
+        @foreach (Tag tag in post.Tags)
+        {
+            @Html.ActionLink(tag.Name + " ", "Tags", "Blog")
+        }
+    </li>*@
+
+</ul>

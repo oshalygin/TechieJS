@@ -1,0 +1,242 @@
+﻿
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <!-- CSS Theme -->
+
+    <link rel="stylesheet" href="~/Content/css/themes/blue.css" id="style_color">
+
+
+
+</head>
+
+
+<body>
+
+
+    <div class="wrapper">
+        <!--=== Header ===-->
+        <div class="header">
+
+            @Html.Partial("_LoginPartial")
+
+
+            <!-- End Topbar -->
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img id="logo-header" src="~/Content/img/logo.png" alt="Logo">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <!-- Home -->
+                            <li class="dropdown active">
+                                @Html.ActionLink("Home", "Index", "Home")
+
+                            </li>
+                            <!-- End Home -->
+                            <!-- Features -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Laboratory
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);"><i class="fa fa-flask"></i>Royal Truck Body</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="http://www.royaltruckbody.com"><i class="fa fa-user"></i>Portal</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);"><i class="fa fa-flask"></i>FSAE Sim</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="http://www.fsaesim.com"><i class="fa fa-user"></i>Portal</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);"><i class="fa fa-flask"></i>Western Register</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="http://www.westernregister.com"><i class="fa fa-user"></i>Portal</a></li>
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+                            </li>
+                            <!-- End Features -->
+                            <!-- Portfolio -->
+
+
+
+                            <li class="dropdown">
+                                <a href="~/Blog/Index" class="dropdown-toggle" data-toggle="dropdown">
+                                    Blog
+                                </a>
+
+                            </li>
+                            <!-- End Blog -->
+                            <!-- Contacts -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Contact
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/"><i class="fa fa-search"></i>Location</a></li>
+                                    <li><a href="~/Home/About"><i class="fa fa-beer"></i>About</a></li>
+                                    <li><a href="/"><i class="fa fa-comment-o"></i>Get In Touch</a></li>
+                                    @*<li><a href="~/Community/Index"><i class="fa fa-beer"></i>Community</a></li>*@
+                                </ul>
+
+                            </li>
+                            <!-- End Contacts -->
+                            <!-- Search Block -->
+                            <li>
+                                <i class="search fa fa-search search-btn"></i>
+                                <div class="search-open">
+                                    <div class="input-group animated fadeInDown">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="input-group-btn">
+                                            <button class="btn-u" type="button">Go</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- End Search Block -->
+                        </ul>
+                    </div><!--/navbar-collapse-->
+                </div>
+            </div>
+            <!-- End Navbar -->
+        </div>
+        <!--=== End Header ===-->
+        @RenderBody()
+
+        <!--=== Footer Version 1 ===-->
+        <div class="footer-v1">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <br />
+                            <a href="/">
+                                <img class="pull-left" id="logo-footer" src="~/Content/img/logo.png" alt="">
+                            </a>
+                            <br />
+                            <br />
+                            <p>Teck Notes is here to expand the web!</p>
+
+                        </div><!--/col-md-3-->
+                        <!-- End About -->
+                        <!-- Latest -->
+                        @{ Html.RenderAction("GetListOfPosts", "Partial"); }
+
+                        <!-- Link List -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="headline"><h2>Useful Links</h2></div>
+                            <ul class="list-unstyled link-list">
+                                <li>@Html.ActionLink("About Us", "About", "Home")<i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                            </ul>
+                        </div><!--/col-md-3-->
+                        <!-- End Link List -->
+                        <!-- Address -->
+                        <div class="col-md-3 map-img md-margin-bottom-40">
+                            <div class="headline"><h2>Contact Us</h2></div>
+                            <address class="md-margin-bottom-40">
+
+                                California, US <br />
+                                Phone: 213 245 7636 <br />
+                                Fax: 800 123 3456 <br />
+                                Email: <a href="mailto:info@TeckNotes.com" class="">info@TeckNotes.com</a>
+                            </address>
+                        </div><!--/col-md-3-->
+                        <!-- End Address -->
+                    </div>
+                </div>
+            </div><!--/footer-->
+
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                2014 &copy; All Rights Reserved. TeckNotes
+                                @Html.ActionLink("Site Map", "SiteMap", "Home") | @Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")| @Html.ActionLink("Terms", "TermsOfService", "Home")
+                            </p>
+                        </div>
+                        <!-- Social Links -->
+                        <div class="col-md-6">
+                            <ul class="social-icons pull-right">
+                                <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+                                <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+                                <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+                                <li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+                                <li><a href="#" data-original-title="Pinterest" class="rounded-x social_pintrest"></a></li>
+                            </ul>
+                        </div>
+                        <!-- End Social Links -->
+                    </div>
+                </div>
+            </div><!--/copyright-->
+        </div>
+        <!--=== End Footer Version 1 ===-->
+    </div><!--/wrapper-->
+    @RenderSection("TopScripts", required: false)
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("appInit", required: false)
+
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/plugins/respond.js"></script>
+
+    <![endif]-->
+
+
+
+
+</body>
+</html>

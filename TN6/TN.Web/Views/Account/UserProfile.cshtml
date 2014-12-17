@@ -1,0 +1,316 @@
+﻿@using TN.BLL;
+@using Microsoft.AspNet.Identity;
+@model TN.Models.UserDetailsViewModel
+
+@{
+    ViewBag.Title = "Manage Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<link rel="stylesheet" href="~/Content/css/pages/profile.css">
+<link href="~/Content/css/pages/feature_timeline2.css" rel="stylesheet" />
+<link href="~/Content/css/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/plugins/sky-forms/custom-sky-forms.css" rel="stylesheet" />
+
+
+
+
+<div class="profile">
+    <div class="container content">
+        <div class="row">
+            <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                @*<img class="img-responsive profile-img margin-bottom-20" src="@Model.PhotoPath" alt="Profile Image">*@
+
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                    <li class="list-group-item active">
+                        <a href="@Url.Action("UserProfile","Account")"><i class="fa fa-user"></i>Profile</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="@Url.Action("Manage","Account")"><i class="fa fa-cog"></i>Settings</a>
+                    </li>
+                </ul>
+                <hr />
+
+            </div>
+            <!--End Left Sidebar-->
+
+
+
+
+            <div class="col-md-9">
+                <!--Profile Body-->
+                <div class="profile-body">
+                    <div class="profile-bio">
+                        <div class="row">
+
+                            <div class="col-md-5">
+
+
+                                <img class="img-responsive md-margin-bottom-10 profile-img" src="@Model.PhotoPath" alt="Profile Image">
+
+                                @using (Html.BeginForm("UserProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.HiddenFor(x => x.FirstName)
+                                    @Html.HiddenFor(x => x.LastName)
+                                    @Html.HiddenFor(x => x.Company)
+                                    @Html.HiddenFor(x => x.Description)
+                                    @Html.HiddenFor(x => x.PhotoPath)
+                                    @Html.HiddenFor(x => x.Title)
+
+                                    @Html.AntiForgeryToken()
+                                    @Html.TextBoxFor(x => x.File, new { id = "fu-my-simple-upload", type = "file", style = "display:none;" })
+                                    @Html.ValidationMessageFor(x => x.File)
+                                    <br />
+
+                                    <button type="button" id="updateButton" class="btn-u btn-u-sm pull-left" onclick="switchFields()">Update Photo</button>
+                                    <button type="submit" id="submitButton" class="btn-u btn-u-sm" style="display:none;">Submit</button>
+
+
+
+                                }&nbsp;
+
+
+                                <button type="button" id="updateProfile" class="btn-u btn-u-sm" onclick="switchFieldsProfile()">Update Profile</button>
+                                <br />
+                                <br />
+
+
+
+                            </div>
+
+                            @using (Html.BeginForm("UserProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.HiddenFor(x => x.PhotoPath)
+                                @Html.HiddenFor(x => x.FirstName)
+                                @Html.HiddenFor(x => x.LastName)
+
+
+                                <div class="col-md-7">
+
+
+                                    <h2>@Model.FullName</h2>
+
+
+
+                                    <span>
+
+                                        <span class="display">
+                                            <strong style="color:#3498db">Company:</strong>
+                                            <strong>
+                                                @Html.DisplayFor(x => x.Company)
+                                            </strong>
+                                        </span>
+                                    </span>
+                                    <span class="editor" style="display:none;">
+                                        <strong style="color:#3498db">Company:</strong>
+                                        <strong>
+                                            @Html.EditorFor(x => x.Company)
+                                            @Html.ValidationMessageFor(x => x.Company)
+                                        </strong>
+                                    </span>
+
+
+
+                                    <span>
+                                        <span class="display">
+                                            <strong style="color:#3498db">Position:</strong>
+                                            <strong>
+                                                @Html.DisplayFor(x => x.Title)
+                                            </strong>
+                                        </span>
+                                    </span>
+                                    <span class="editor" style="display:none;">
+                                        <strong style="color:#3498db">Position:</strong>
+                                        <strong>
+                                            @Html.EditorFor(x => x.Title)
+                                            @Html.ValidationMessageFor(x => x.Title)
+                                        </strong>
+
+                                    </span>
+
+                                    <hr>
+                                    <p>
+                                        <strong style="color:#3498db">
+                                            Description:
+                                        </strong>
+                                        <span class="display">
+                                            <strong>
+                                                @Html.DisplayFor(x => x.Description)
+                                            </strong>
+                                        </span>
+                                        <span class="editor" style="display:none;">
+                                            <strong>
+                                                @Html.TextAreaFor(x => x.Description, new { rows = "7", cols = "50" })
+                                                @Html.ValidationMessageFor(x => x.Description)
+                                            </strong>
+                                        </span>
+                                    </p>
+
+                                    <button type="submit" id="submitProfile" class="btn-u btn-u-sm pull-right" style="display:none;">Submit Profile Changes</button>
+                                </div>
+                            }
+                            &nbsp;
+                        </div>
+                    </div><!--/end row-->
+
+                    <hr>
+
+                    <div class="row">
+                        <!--Social Icons v3-->
+                        <div class="col-sm-6 sm-margin-bottom-30">
+                            <div class="panel panel-profile">
+                                <div class="panel-heading overflow-h">
+                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> Social Contacts - FEATURE IN PROGRESS </h2>
+                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-unstyled social-contacts-v2">
+                                        <li><i class="rounded-x tw fa fa-twitter"></i> <a href="#">John.Doe</a></li>
+                                        <li><i class="rounded-x fb fa fa-facebook"></i> <a href="#">John Doe</a></li>
+                                        <li><i class="rounded-x sk fa fa-skype"></i> <a href="#">jDoe22</a></li>
+                                        <li><i class="rounded-x gp fa fa-google-plus"></i> <a href="#">jDoe</a></li>
+                                        <li><i class="rounded-x gm fa fa-envelope"></i> <a href="#">johndoe@gmail.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Social Icons v3-->
+
+                    </div><!--/end row-->
+
+                    <hr>
+
+                    <!--Timeline-->
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> Current Projects - FEATURE IN PROGRESS</h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <div class="panel-body margin-bottom-40">
+                            <ul class="timeline-v2 timeline-me">
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>Security Review</span> <span>2012 - Current</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                        <h2>Project Manager</h2>
+                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Peasprouts wattle seed rutabaga okra yarrow cress avocado grape.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>Test Plan Guidelines</span> <span>2007 - Current</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                        <h2>Team Member</h2>
+                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce.</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End Timeline-->
+                    <!--Timeline-->
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> Past Projects - FEATURE IN PROGRESS</h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="timeline-v2 timeline-me">
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>Risk Management</span> <span>2003 - 2005</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                        <h2>Project Manager</h2>
+                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Peasprouts wattle seed rutabaga okra yarrow cress avocado grape.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>Space Shuttle Testing Protocols</span> <span>1997 - 2000</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                        <h2>Structural Engineer</h2>
+                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce.</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End Timeline-->
+
+                    <hr>
+
+
+                </div>
+                <!--End Profile Body-->
+            </div>
+        </div>
+    </div><!--/end row-->
+</div><!--/container-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}
+
+
+
+
+@section appInit{
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/index.js"></script>
+
+    <script src="~/Scripts/jQuery.FileUpload/jquery.fileupload.js"></script>
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("input").focusout(function () {
+                if (!$(this).val()) {
+                    $(this).valid();
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        function switchFields() {
+            $("#submitButton").toggle();
+            $("#updateButton").toggle();
+            $("#updateProfile").toggle();
+            $('#fu-my-simple-upload').toggle();
+
+        }
+
+        function switchFieldsProfile() {
+            $('.editor').toggle();
+            $('.display').toggle();
+            $('#updateProfile').toggle();
+            $('#updateButton').toggle();
+            $('#submitProfile').toggle();
+        }
+
+        $(document).ready(function () {
+            $("input").focusout(function () {
+                if (!$(this).val()) {
+                    $(this).valid();
+                }
+            });
+        });
+    </script>
+}
+

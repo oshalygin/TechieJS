@@ -1,0 +1,45 @@
+﻿@model TN.Models.CommentViewModel
+@{
+    Layout = null;
+    Model.PostId = ViewBag.postId ?? 0;
+}
+
+@using (Html.BeginForm("NewComment", "Blog", FormMethod.Post, new { id = "newCommentForm" }))
+{
+
+    <!-- Comment Form -->
+    <div class="post-comment">
+        <h3>Leave a Comment</h3>
+
+
+        @Html.HiddenFor(x => x.PostId)
+
+        @Html.LabelFor(x => x.Name)
+        <div class="row margin-bottom-20">
+            <div class="col-md-7 col-md-offset-0">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        @Html.LabelFor(x => x.Email)
+        <div class="row margin-bottom-20">
+            <div class="col-md-7 col-md-offset-0">
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        @Html.LabelFor(x => x.Body)
+        <div class="row margin-bottom-20">
+            <div class="col-md-11 col-md-offset-0">
+                @Html.TextAreaFor(x => x.Body, new { @class = "form-control", rows = "8" })
+                @Html.ValidationMessageFor(m => m.Body, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <p><button class="btn-u" type="submit" id="newCommentSubmitButton" >Post Comment</button></p>
+
+    </div>
+    <!-- End Comment Form -->
+}

@@ -1,0 +1,294 @@
+﻿@model TN.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<link href="~/Content/css/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/plugins/sky-forms/custom-sky-forms.css" rel="stylesheet" />
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h1 class="pull-left">Register</h1>
+        <ul class="pull-right breadcrumb">
+            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+            <li class="active">Register</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "sky-form", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <header>Create An Account</header>
+                <fieldset>
+
+
+
+
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.UserName, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-user"></i>
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Create a unique user name</b>
+                                        @Html.ValidationMessageFor(m => m.UserName)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.EmailAddress, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-envelope-o"></i>
+                                        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Your Email Address will be used for all forms of communication.</b>
+                                        @Html.ValidationMessageFor(m => m.EmailAddress, null, new { @class = "help-inline" })
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.ConfirmEmail, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-envelope-o"></i>
+                                        @Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Confirm the Email</b>
+                                        @Html.ValidationMessageFor(m => m.ConfirmEmail)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.Password, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-lock"></i>
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Use at least 8 characters. Don’t use a password from another site, or something too obvious like your pet’s name.</b>
+                                        @Html.ValidationMessageFor(m => m.Password)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-lock"></i>
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Confirm the Password</b>
+                                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.FirstName, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Required</b>
+                                        @Html.ValidationMessageFor(m => m.FirstName)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.LastName, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+
+                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Required</b>
+                                        @Html.ValidationMessageFor(m => m.LastName)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.Phone, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+
+                                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                                        <b class="tooltip tooltip-bottom-right">Your phone number helps us with things like keeping your account secure. For example, we can send you a text message to help you access your account if you ever forget your password.</b>
+                                        @Html.ValidationMessageFor(m => m.Phone)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.DateOfBirth, new { @class = "control-label label col col-4" })
+                                <div class="col col-8">
+                                    <label class="input">
+
+                                        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control dateOfBirth", placeholder = "MM/dd/yyyy", type = "date" })
+                                        @Html.ValidationMessageFor(m => m.DateOfBirth)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.Gender, new { @class = "control-label label col col-4" })
+                                <div class="col col-8 select">
+                                    <label class="input">
+                                        @Html.DropDownListFor(m => m.Gender, TN.BLL.StaticListsBLL.GenderListItems(), "I am...", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Gender)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+                    <section>
+                        <div class="form-group">
+                            <div class="row">
+                                @Html.LabelFor(m => m.State, new { @class = "control-label label col col-4" })
+                                <div class="col col-8 select">
+                                    <label class="input">
+                                        @Html.DropDownListFor(m => m.State, TN.BLL.StaticListsBLL.StateListItems(), "Select Your State", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.State)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section>
+                        <div class="row">
+                            <div class="col col-4"></div>
+                            <div class="col col-8">
+
+
+                                <label class="checkbox">
+
+
+                                    @Html.CheckBoxFor(m => m.AcceptsTerms)
+                                    <i></i>
+                                    @Html.LabelFor(m => m.AcceptsTerms)
+
+
+                                    @Html.ValidationMessageFor(m => m.AcceptsTerms)
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="row">
+                            <div class="col col-4"></div>
+                            <div class="col col-8">
+                                <label class="checkbox">
+                                    @Html.CheckBoxFor(m => m.AcceptsPrivacyPolicy)
+                                    <i></i>
+                                    @Html.LabelFor(m => m.AcceptsPrivacyPolicy)
+                                    @Html.ValidationMessageFor(m => m.AcceptsPrivacyPolicy)
+                                    
+                                    </label>
+                            </div>
+                        </div>
+                    </section>
+
+            
+
+
+                </fieldset>
+                <br/>
+              
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <button type="submit" class="btn-u btn-block">Register</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $.validator.unobtrusive.adapters.addBool("mustbetrue", "required");
+    </script>
+
+    <script>
+        $(function () {
+            $(".dateOfBirth").datepicker();
+        });
+    </script>
+}

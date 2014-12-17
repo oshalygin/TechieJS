@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+@using System.Globalization
+
+
+<div class="col-md-3 md-margin-bottom-40">
+    <div class="posts">
+        <div class="headline"><h2>Recent Blog Posts</h2></div>
+        <ul class="list-unstyled latest-list">
+            @foreach (var post in @ViewBag.ListOfPosts)
+            {
+                @*  //TODO: fix this later
+                    For some reason I can't pass post.Title to the ActionLink...Strange *@
+                
+                string title = post.Title;
+
+                <li>
+                    @(Html.ActionLink(title, "Post", "Blog", new { id = post.Id }, null))
+                    <small>@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.Date.Month) @post.Date.Day, @post.Date.Year</small>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+
+
+@*<div class="col-md-3 md-margin-bottom-40">
+        <div class="posts">
+            <div class="headline"><h2>Recent Blog Posts</h2></div>
+            <ul class="list-unstyled latest-list">
+                <li>
+                    <a href="#">Recent Content</a>
+                    <small>July 8, 2014</small>
+                </li>
+                <li>
+                    <a href="#">Being Productive</a>
+                    <small>June 23, 2014</small>
+                </li>
+                <li>
+                    <a href="#">New Terms and Conditions</a>
+                    <small>September 15, 2013</small>
+                </li>
+            </ul>
+        </div>
+    </div>*@

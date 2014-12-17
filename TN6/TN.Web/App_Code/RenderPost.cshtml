@@ -1,0 +1,112 @@
+﻿@using System.Globalization
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using TN.BLL
+@using TN.Models
+
+
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper Html, bool showComments)
+{
+
+    <br />
+    <br />
+     <!--=== Content Part ===-->
+    
+        <!--Blog Post-->
+        <div class="blog margin-bottom-40">
+            <div class="blog-img">
+                <img class="img-responsive" src=@post.PhotoPath alt="">
+            </div>
+            <h2><a href="#">@post.Title</a></h2>
+            <div class="blog-post-tags">
+                <ul class="list-unstyled list-inline blog-info">
+                    <li><i class="fa fa-calendar"></i> @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.Date.Month) @post.Date.Day, @post.Date.Year</li>
+                    <li><i class="fa fa-pencil"></i> Oleg Shalygin</li>
+                    <li><i class="fa fa-comments"></i> <a href="#">@post.Comments.Count Comments</a></li>
+                    <li>
+                </ul>
+                <ul class="list-unstyled list-inline blog-tags">
+                    <li>
+                        <i class="fa fa-tags"></i>
+                        @foreach (Tag tag in post.Tags)
+                        {
+                            @Html.ActionLink(tag.Name + " ", "Tags", "Blog", new { tagName = tag.Name }, null)
+                        }
+                    </li>
+                </ul>
+            </div>
+            @Html.Raw(post.Body)
+        </div>
+        <!--End Blog Post-->
+        if (showComments)
+        {
+            if (@post.Comments.Count > 0)
+            {
+                <hr />
+            }
+            foreach (Comment comment in post.Comments.OrderBy(x => x.Date))
+            {
+                <div class="media">
+                    <span class="pull-left">
+                        <img class="media-object" src="~/Content/img/blog/default_user_56.png" alt="default comment image" />
+                    </span>
+                    <div class="media-body">
+                        <h4 class="media-heading"><span>@comment.Name </span></h4><h5><span class="pull-right">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(comment.Date.Month) @comment.Date.Day,  @comment.Date.Year  - @comment.Date.ToString("t") </span></h5>
+                        <p>@Html.Raw(comment.Body.Replace("\n", "<br />"))</p>
+                        @*TODO: fix*@
+                        @*@if (Roles.IsUserInRole("admin"))*@
+                        @if (true)
+                        {
+                            @Html.ActionLink("Edit ", "EditComment", "Blog", new { id = comment.Id }, null)
+
+                            @Html.ActionLink("Delete", "DeleteComment", "Blog", new { id = comment.Id, postId = post.Id }, null)
+
+                        }
+                    </div>
+
+                </div><!--/media-->
+
+            }
+            @*using (Html.BeginForm("Comment", "Blog", FormMethod.Post))
+            {
+                
+                
+                
+        <!-- Comment Form -->
+                <div class="post-comment">
+                    <h3>Leave a Comment</h3>
+
+                    <input type="hidden" name="id" value="@post.Id" />
+
+                    <label>Name <span class="color-red">*</span></label>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-7 col-md-offset-0">
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                    </div>
+
+                    <label>Email Address </label>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-7 col-md-offset-0">
+                            <input type="text" name="emailAddress" class="form-control">
+                        </div>
+                    </div>
+
+                    <label>Message <span class="color-red">*</span></label>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-11 col-md-offset-0">
+                            <textarea class="form-control" name="commentBody" rows="8"></textarea>
+                        </div>
+                    </div>
+
+                    <p><button class="btn-u" type="submit">Post Comment</button></p>
+
+                </div>
+                 <!-- End Comment Form -->
+            }*@
+        }
+    
+    
+
+}

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//Ddd HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.ddd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>jQuery Counddown</title>
+	<link rel="stylesheet" href="jquery.counddown.css">
+	
+	<style type="text/css">
+	#defaultCounddown { width: 240px; height: 45px; }
+	</style>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.counddown.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		var ausdday = new Date();
+		ausdday = new Date(ausdday.getFullYear() + 1, 1 - 1, 26);
+		$('#defaultCounddown').counddown({until: ausdday});
+		$('#year').text(ausdday.getFullYear());
+	});
+	</script>
+</head>
+
+<body>
+	<div id="defaultCounddown"></div>
+</body>
+</html>

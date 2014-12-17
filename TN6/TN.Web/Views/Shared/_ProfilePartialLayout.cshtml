@@ -1,0 +1,89 @@
+﻿@using TN.BLL;
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Manage Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/css/pages/profile.css">
+<link href="~/Content/css/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/plugins/sky-forms/custom-sky-forms.css" rel="stylesheet" />
+
+
+<div class="profile">
+    <div class="container content">
+        <div class="row">
+            <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                
+
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                    <li class="list-group-item">
+                        <a href="@Url.Action("UserProfile","Account")"><i class="fa fa-user"></i>Profile</a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="@Url.Action("Manage","Account")"><i class="fa fa-cog"></i>Settings</a>
+                    </li>
+                </ul>
+                <hr />
+                 
+            </div>
+            <!--End Left Sidebar-->
+
+            <div class="col-md-9">
+                <!--Profile Body-->
+                <div class="profile-body margin-bottom-20">
+                    <div class="tab-v1">
+                        <ul class="nav nav-justified nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#profile">Edit Profile</a></li>
+                            <li><a data-toggle="tab" href="#password">Change Password</a></li>
+                            <li><a data-toggle="tab" href="#settings">Notification Settings</a></li>
+                        </ul>
+                        @RenderBody()
+                    </div>
+                </div>
+                <!--End Profile Body-->
+            </div>
+        </div><!--/end row-->
+    </div><!--/container-->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}
+
+
+@section appInit{
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/index.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+
+        function switchFields() {
+            $('.editor').toggle();
+            $('.display').toggle();
+            $("#cancelButton").toggle();
+            $("#editButton").toggle();
+
+        }
+
+        $(document).ready(function () {
+            $("input").focusout(function () {
+                if (!$(this).val()) {
+                    $(this).valid();
+                }
+            });
+        });
+    </script>
+
+
+}

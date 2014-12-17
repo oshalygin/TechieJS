@@ -1,0 +1,12 @@
+﻿@model TN.Models.UploadPhotoModel
+
+<img class="img-responsive md-margin-bottom-10 profile-img" src="@Model.PhotoPath" alt="Profile Image">
+@using (Html.BeginForm("UserPhotoUpload", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(x => x.File)
+    <input type="file" id="file" name="file" />
+    @Html.ValidationMessageFor(x => x.File)
+    <button type="submit" class="btn-u btn-u-sm">Update Photo</button>
+}
