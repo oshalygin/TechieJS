@@ -10,7 +10,7 @@ namespace TN.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Blog");
         }
 
         public ActionResult About()

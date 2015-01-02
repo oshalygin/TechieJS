@@ -21,16 +21,16 @@ namespace TN.Web
                defaults: new { controller = "Blog", action = "Post" });
 
             //Blog
-            routes.MapRoute(
-                name: "Blog",
-                url: "Blog",
-                defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional });
+            //routes.MapRoute(
+            //    name: "Blog",
+            //    url: "Blog",
+            //    defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional });
 
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
             );
 
    

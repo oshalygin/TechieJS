@@ -60,7 +60,7 @@
                         <ul class="nav navbar-nav">
                             <!-- Home -->
                             <li class="dropdown active">
-                                @Html.ActionLink("Home", "Index", "Home")
+                                @Html.ActionLink("Home", "Index", "Blog")
 
                             </li>
                             <!-- End Home -->
@@ -97,16 +97,6 @@
                             </li>
                             <!-- End Features -->
                             <!-- Portfolio -->
-
-
-
-                            <li class="dropdown">
-                                <a href="~/Blog/Index" class="dropdown-toggle" data-toggle="dropdown">
-                                    Blog
-                                </a>
-
-                            </li>
-                            <!-- End Blog -->
                             <!-- Contacts -->
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
@@ -156,33 +146,38 @@
                             </a>
                             <br />
                             <br />
-                            <p>TechieJS -- Moving the Web Forward</p>
+                            <p>Moving the Web Forward</p>
 
                         </div><!--/col-md-3-->
                         <!-- End About -->
                         <!-- Latest -->
-                        @{ Html.RenderAction("GetListOfPosts", "Partial"); }
+                        @{
+                            Html.RenderAction("GetListOfPosts", "Partial");
+                        }
 
                         <!-- Link List -->
                         <div class="col-md-3 md-margin-bottom-40">
                             <div class="headline"><h2>Useful Links</h2></div>
                             <ul class="list-unstyled link-list">
-                                <li>@Html.ActionLink("About Us", "About", "Home")<i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://developer.mozilla.org">Mozilla Developer Network</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://blogs.msdn.com/b/csharpfaq/">C# MSDN Blog</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://blogs.msdn.com/b/visualstudio/">Visual Studio Blog</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://angularjs.org">AngularJS</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://nodejs.org">NodEJS</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://developer.apple.com/devcenter/ios/index.action">iOS Dev Center</a><i class="fa fa-angle-right"></i></li>
                             </ul>
-                        </div><!--/col-md-3-->
+                        </div>
+                        
+                        
+                        <!--/col-md-3-->
                         <!-- End Link List -->
                         <!-- Address -->
                         <div class="col-md-3 map-img md-margin-bottom-40">
-                            <div class="headline"><h2>Contact Us</h2></div>
+                            <div class="headline"><h2>Contact</h2></div>
                             <address class="md-margin-bottom-40">
 
                                 California, US <br />
-                                Phone: 213 245 7636 <br />
-                                Fax: 800 123 3456 <br />
+                                Phone: 818 350 3895 <br />
                                 Email: <a href="mailto:info@TechieJS.com" class="">info@TechieJS.com</a>
                             </address>
                         </div><!--/col-md-3-->
@@ -197,7 +192,7 @@
                         <div class="col-md-6">
                             <p>
                                 2014 &copy; All Rights Reserved. TechieJS
-                                @Html.ActionLink("Site Map", "SiteMap", "Home") | @Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")| @Html.ActionLink("Terms", "TermsOfService", "Home")
+                                @Html.ActionLink("Site Map", "Index", "Home") | @Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")| @Html.ActionLink("Terms", "TermsOfService", "Home")
                             </p>
                         </div>
                         <!-- Social Links -->
