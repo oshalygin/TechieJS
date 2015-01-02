@@ -52,9 +52,9 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
                     Phone = "213-245-7636",
                     AcceptsPrivacyPolicy = true,
                     AcceptsTerms = true,
-                    Company = "Teck Notes",
+                    Company = "TechieJS",
                     Title = "Developer",
-                    Description = "Developer and Founder of Teck Notes.  Learning web development and coding is a passion of mine",
+                    Description = "Developer and Founder of TechieJS  Learning web development and coding is a passion of mine",
                     PhotoPath = "/Content/img/user_default.png",
                     DateUserDetailsUpdated = DateTime.Now,
 
