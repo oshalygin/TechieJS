@@ -810,6 +810,7 @@
     <Content Include="Content\css\plugins\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\css\plugins\font-awesome\scss\_variables.scss" />
     <Content Include="App_Code\RenderPost.cshtml" />
+    <None Include="Properties\PublishProfiles\oshalygin.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\forms\sky-forms-ie8.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
