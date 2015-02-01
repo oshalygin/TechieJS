@@ -401,6 +401,7 @@
     <Content Include="Content\img\clients\walmart_grey.png" />
     <Content Include="Content\img\code1.jpg" />
     <Content Include="Content\img\codingFront.png" />
+    <Content Include="Content\img\codingImage.jpg" />
     <Content Include="Content\img\csharpprogramming.jpg" />
     <Content Include="Content\img\demo.jpg" />
     <Content Include="Content\img\discoveringed.png" />
