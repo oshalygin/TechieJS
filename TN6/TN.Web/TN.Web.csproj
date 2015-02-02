@@ -231,7 +231,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="blog_item_option1.html" />
     <Content Include="bundles\js\jquery-1.7.2.min.js" />
     <Content Include="bundles\js\twitter-text.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -810,6 +809,7 @@
     <Content Include="Content\css\plugins\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\css\plugins\font-awesome\scss\_variables.scss" />
     <Content Include="App_Code\RenderPost.cshtml" />
+    <None Include="Properties\PublishProfiles\LocalDebug.pubxml" />
     <None Include="Properties\PublishProfiles\oshalygin.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\forms\sky-forms-ie8.js" />

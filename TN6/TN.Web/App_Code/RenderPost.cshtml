@@ -23,7 +23,13 @@
                 <ul class="list-unstyled list-inline blog-info">
                     <li><i class="fa fa-calendar"></i> @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.Date.Month) @post.Date.Day, @post.Date.Year</li>
                     <li><i class="fa fa-pencil"></i> Oleg Shalygin</li>
-                    <li><i class="fa fa-comments"></i> <a href="#">@post.Comments.Count Comments</a></li>
+                    @if (post.Comments.Count == 1)
+                    {
+                    <li><i class="fa fa-comments"></i> <a href="#">@post.Comments.Count Comment</a></li>    
+                    }
+                    else { 
+                        <li><i class="fa fa-comments"></i> <a href="#">@post.Comments.Count Comments</a></li>
+                        }
                     <li>
                 </ul>
                 <ul class="list-unstyled list-inline blog-tags">
