@@ -28,6 +28,11 @@ namespace TN.Web.Controllers
             return View();
         }
 
+        public ActionResult ErrorPage()
+        {
+            return View();
+        }
+
         public JsonResult GetTwitterFeed()
         {
             

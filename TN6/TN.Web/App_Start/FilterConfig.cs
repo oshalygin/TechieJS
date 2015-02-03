@@ -7,7 +7,9 @@ namespace TN.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            //Turn this back on for debugging purposes but comment it out when going public....
+
+            //filters.Add(new HandleErrorAttribute());
         }
     }
 }

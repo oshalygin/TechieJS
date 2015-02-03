@@ -13,6 +13,16 @@ namespace TN.Web.Controllers
             return RedirectToAction("Index", "Blog");
         }
 
+        public ActionResult Error404()
+        {
+            return View();
+        }
+
+        public ActionResult Error500()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             return View();

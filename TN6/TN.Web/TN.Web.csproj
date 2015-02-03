@@ -233,6 +233,7 @@
   <ItemGroup>
     <Content Include="bundles\js\jquery-1.7.2.min.js" />
     <Content Include="bundles\js\twitter-text.js" />
+    <Content Include="Content\404ErrorPage.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -321,6 +322,7 @@
     <Content Include="Content\css\themes\orange.css" />
     <Content Include="Content\css\themes\purple.css" />
     <Content Include="Content\css\themes\red.css" />
+    <Content Include="Content\img\500Error.png" />
     <Content Include="Content\img\background-blur.png" />
     <Content Include="Content\img\bg-black.png" />
     <Content Include="Content\img\bg-black1.png" />
@@ -1668,6 +1670,9 @@
     <Content Include="Views\Partial\_ListOfBlogPostsPartial.cshtml" />
     <Content Include="Views\Partial\_ListOfMostCommonTagsPartial.cshtml" />
     <Content Include="Views\Blog\_PostCommentPartial.cshtml" />
+    <Content Include="Views\Test\ErrorPage.cshtml" />
+    <Content Include="Views\Home\Error404.cshtml" />
+    <Content Include="Views\Home\Error500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
