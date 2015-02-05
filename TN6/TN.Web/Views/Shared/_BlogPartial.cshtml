@@ -108,7 +108,34 @@
 
                     //Time Calculation for displaying in " ago " format...
                     //Parse the twitter date into a raw UTC value.
-                    var time = Date.parse(json[i].created_at);
+
+                    //This part is a little tricky with IE.
+                    //$(function () {
+                    //    $.getJSON("http://twitter.com/statuses/user_timeline/google.json?count=1&callback=?", function (data) {
+                    //        $.each(data, function () {
+                    //            var created = parseDate(this.created_at);
+                    //            $("<div></div>").append("<ul><li>Unformatted: " + this.created_at + "</li><li>Formatted: " + created + "</li></ul>").appendTo("body");
+                    //        });
+                    //    });
+                    //    function parseDate(str) {
+                    //        var v = str.split(' ');
+                    //        return new Date(Date.parse(v[1] + " " + v[2] + ", " + v[5] + " " + v[3] + " UTC"));
+                    //    }
+                    //});
+                    //var time = Date.parse(json[i].created_at);
+
+                    function parseDate(str) {
+                        var v = str.split(' ');
+                        return new Date(Date.parse(v[1] + " " + v[2] + ", " + v[5] + " " + v[3] + " UTC"));
+                    }
+
+                    
+                    var time = parseDate(json[i].created_at);
+
+                    
+
+                    
+
 
 
                     var timeDifference = (new Date() - time) / 1000;
