@@ -25,7 +25,5 @@ namespace TN.Models
 
         public bool IsAnonymous { get; set; }
 
-
-
     }
 }

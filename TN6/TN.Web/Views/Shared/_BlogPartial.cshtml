@@ -110,6 +110,7 @@
                     //Parse the twitter date into a raw UTC value.
 
                     //This part is a little tricky with IE.
+                    //Generic example
                     //$(function () {
                     //    $.getJSON("http://twitter.com/statuses/user_timeline/google.json?count=1&callback=?", function (data) {
                     //        $.each(data, function () {
@@ -122,6 +123,8 @@
                     //        return new Date(Date.parse(v[1] + " " + v[2] + ", " + v[5] + " " + v[3] + " UTC"));
                     //    }
                     //});
+                    
+                    //Original
                     //var time = Date.parse(json[i].created_at);
 
                     function parseDate(str) {
