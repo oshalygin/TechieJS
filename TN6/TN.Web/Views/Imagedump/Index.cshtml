@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TN.Models.UploadPublicImageViewModel
+
+@{
     ViewBag.Title = "Image Dump";
 }
 
@@ -18,34 +20,9 @@
 <div class="container content">
     <div class="gallery-page">
 
-        <form action="" class="sky-form">
-            <header>Image Upload</header>
+        @Html.Partial("_NewImageUpload")
 
-            <fieldset>
-             
-
-                <section>
-                    <label class="label">File input</label>
-                    <label for="file" class="input input-file">
-                        <div class="button"><input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
-                    </label>
-                </section>
-                
-                <section>
-                    <label class="label">Description</label>
-                    <label class="input">
-                        <input type="text">
-                    </label>
-                </section>
-                
-                <button class="btn-u btn-u-lg btn-block btn-u-blue" type="button">Upload</button>
-
-
-            </fieldset>
-
-
-        </form>
-
+       
         <hr class="margin-bottom-30">
 
 

@@ -28,9 +28,11 @@ namespace TN.Web.Controllers
 
         }
 
+        //TODO: FIX THE DATABINDING
+
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult Index(UploadPublicImageViewModel model, HttpPostedFileBase file)
+        public ActionResult NewImageUpload(UploadPublicImageViewModel model, HttpPostedFileBase file)
         {
 
             if (ModelState.IsValid)
@@ -38,11 +40,11 @@ namespace TN.Web.Controllers
                 string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.ProfileImage);
                 _db.SavePublicImage(model.Description, photoPath);
                 
-                return View();
+                return RedirectToAction("Index", "Imagedump");
 
             }
 
-            return View(model);
+            return View("Index",model);
         }
     }
 }

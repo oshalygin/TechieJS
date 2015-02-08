@@ -1748,6 +1748,7 @@
     <Content Include="Views\Home\Error404.cshtml" />
     <Content Include="Views\Home\Error500.cshtml" />
     <Content Include="Views\Imagedump\Index.cshtml" />
+    <Content Include="Views\Imagedump\_NewImageUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
