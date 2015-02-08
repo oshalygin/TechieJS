@@ -48,7 +48,7 @@ namespace TN.BLL.Utility
                 string fileExtension = Path.GetExtension(file.FileName);
 
                 string photoUrl = Guid.NewGuid().ToString();
-                string photoUrlOriginal = photoUrl + "_or" + fileExtension;
+                string photoUrlOriginal = photoUrl + "_original" + fileExtension;
 
                 string returnUrl = photoUrl + ".png";
 
@@ -77,14 +77,11 @@ namespace TN.BLL.Utility
 
                 if (path == ImagePath.PublicImage)
                 {
-                    Image objImage = Image.FromFile(FullImagePath(photoUrl + ".png", path));
-                    int imgWidth = objImage.Width;
-                    int imgHeight = objImage.Height;
+                    file.SaveAs(FullImagePath((photoUrl + fileExtension), path));
 
 
-
-                    ResizeStream(imgWidth, imgHeight, file.InputStream, FullImagePath((photoUrl + ".png"), path));
-                    return BlogImageDatabasePath.Substring(1) + returnUrl;
+                    //ResizeStream(imgWidth, imgHeight, file.InputStream, FullImagePath((photoUrl + ".png"), path));
+                    return BlogImageDatabasePath.Substring(1) + fileExtension;
 
                 }
 

@@ -53,7 +53,7 @@ namespace TN.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.ProfileImage);
+                string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.PublicImage);
                 _db.SavePublicImage(model.Description, photoPath);
                 
                 return RedirectToAction("Index", "Imagedump");
