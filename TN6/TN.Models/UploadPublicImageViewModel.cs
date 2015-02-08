@@ -10,13 +10,7 @@ namespace TN.Models
 {
     public class UploadPublicImageViewModel
     {
-        public int Id { get; set; }
-
         public string Description { get; set; }
-
-        public string ImagePath { get; set; }
-
-        public DateTime UploadDate { get; set; }
 
         [FileType("jpg,png,gif,bmp")]
         [FileSize(3, ErrorMessage = "Must be less than 3MB")]
