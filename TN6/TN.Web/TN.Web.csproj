@@ -220,7 +220,7 @@
     <Compile Include="Controllers\GuestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
-    <Compile Include="Controllers\PicturesController.cs" />
+    <Compile Include="Controllers\ImagedumpController.cs" />
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
@@ -328,6 +328,14 @@
     <Content Include="Content\css\plugins\hover-effect\css\hover-min.css" />
     <Content Include="Content\css\plugins\hover-effect\css\hover.css" />
     <Content Include="Content\css\plugins\hover-effect\license.txt" />
+    <Content Include="Content\css\plugins\line-icons\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Content\css\plugins\line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\css\plugins\line-icons\icons-lte-ie7.js" />
+    <Content Include="Content\css\plugins\line-icons\index.html" />
+    <Content Include="Content\css\plugins\line-icons\License.txt" />
+    <Content Include="Content\css\plugins\line-icons\line-icons.css" />
+    <Content Include="Content\css\plugins\line-icons\Readme.txt" />
+    <Content Include="Content\css\plugins\line-icons\style.css" />
     <Content Include="Content\css\plugins\sky-forms\custom-sky-forms.css" />
     <Content Include="Content\css\plugins\sky-forms\demo.css" />
     <Content Include="Content\css\plugins\sky-forms\font-awesome.css" />
@@ -844,6 +852,9 @@
     <Content Include="Content\css\plugins\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\css\plugins\font-awesome\scss\_variables.scss" />
     <Content Include="App_Code\RenderPost.cshtml" />
+    <Content Include="Content\css\plugins\line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\css\plugins\line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\css\plugins\line-icons\fonts\Simple-Line-Icons.woff" />
     <None Include="Properties\PublishProfiles\LocalDebug.pubxml" />
     <None Include="Properties\PublishProfiles\oshalygin.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
@@ -1706,7 +1717,7 @@
     <Content Include="Views\Test\ErrorPage.cshtml" />
     <Content Include="Views\Home\Error404.cshtml" />
     <Content Include="Views\Home\Error500.cshtml" />
-    <Content Include="Views\Pictures\Index.cshtml" />
+    <Content Include="Views\Imagedump\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

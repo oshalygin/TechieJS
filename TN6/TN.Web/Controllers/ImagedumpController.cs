@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace TN.Web.Controllers
 {
-    public class PicturesController : Controller
+    public class ImagedumpController : Controller
     {
         //
-        // GET: /Pictures/
+        // GET: /Imagedump/
         public ActionResult Index()
         {
             return View();
