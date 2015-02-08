@@ -9,6 +9,7 @@ namespace TN.BLL.Utility
     public enum ImagePath
     {
         ProfileImage,
-        BlogPostImage
+        BlogPostImage,
+        PublicImage
     }
 }

@@ -1753,6 +1753,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Common\" />
     <Folder Include="Content\img\BlogImages\" />
+    <Folder Include="Content\img\PublicImages\" />
     <Folder Include="Content\img\UserPhotos\" />
     <Folder Include="Views\Guests\" />
     <Folder Include="Views\Picture\" />

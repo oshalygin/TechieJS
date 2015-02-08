@@ -94,12 +94,14 @@
     <Compile Include="DefaultHashPassword.cs" />
     <Compile Include="EditPostViewModel.cs" />
     <Compile Include="GuestsViewModel.cs" />
+    <Compile Include="PublicImage.cs" />
     <Compile Include="OperationStatus.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocialMediaReference.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="UploadPhotoModel.cs" />
+    <Compile Include="UploadPublicImageViewModel.cs" />
     <Compile Include="UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

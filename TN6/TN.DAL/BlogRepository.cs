@@ -224,6 +224,26 @@ namespace TN.DAL
             return post.UrlTitle;
 
         }
+
+
+        
+
+        public void SavePublicImage(string description, string imagePath)
+        {
+            TNDbContext context = DataContext;
+            PublicImage publicIamge = new PublicImage
+            {
+                ImagePath = imagePath,
+                Description = description,
+                UploadDate = DateTime.Now
+            };
+
+            context.PublicImages.Add(publicIamge);
+
+            context.SaveChanges();
+
+        }
+    
         
 
 

@@ -13,6 +13,8 @@ namespace TN.BLL.Utility
 
         private const string BlogImageDatabasePath = "~/Content/img/BlogImages/";
 
+        private const string PublicImageDatabasePath = "~/Content/img/PublicImages/";
+
 
         public static string FullImagePath(string profileFileName, ImagePath path)
         {
@@ -25,6 +27,11 @@ namespace TN.BLL.Utility
             if (path == ImagePath.BlogPostImage)
             {
                 return Path.Combine(HttpContext.Current.Server.MapPath(BlogImageDatabasePath), profileFileName);
+            }
+
+            if (path == ImagePath.PublicImage)
+            {
+                return Path.Combine(HttpContext.Current.Server.MapPath(PublicImageDatabasePath), profileFileName);
             }
 
             return null;

@@ -30,5 +30,7 @@ namespace TN.DAL
         int GetPostId(string urltitle);
         string GetPostTitle(int id);
 
+        void SavePublicImage(string description, string imagePath);
+
     }
 }
