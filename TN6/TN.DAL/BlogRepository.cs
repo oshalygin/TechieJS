@@ -226,7 +226,7 @@ namespace TN.DAL
         }
 
 
-        
+
 
         public void SavePublicImage(string description, string imagePath)
         {
@@ -243,8 +243,27 @@ namespace TN.DAL
             context.SaveChanges();
 
         }
-    
-        
+
+
+        public IPagedList<PublicImage> ListOfImages(int imagesPerPage, int page)
+        {
+            TNDbContext context = DataContext;
+            return context.PublicImages
+                .OrderByDescending(x => x.UploadDate)
+                .ToPagedList(imagesPerPage, page);
+        }
+
+       
+
+        //public IPagedList<Post> ListOfPosts(int postsPerPage, int page)
+        //{
+        //    TNDbContext context = DataContext;
+        //    return context.Posts
+        //        .Include(a => a.Tags)
+        //        .Include(b => b.Comments)
+        //        .OrderByDescending(x => x.Date)
+        //        .ToPagedList(postsPerPage, page);
+        //}
 
 
     }

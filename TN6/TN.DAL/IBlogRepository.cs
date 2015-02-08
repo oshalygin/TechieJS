@@ -14,6 +14,10 @@ namespace TN.DAL
 
         Post GetPost(int? postId);
         IPagedList<Post> ListOfPosts(int pageNumber, int postsPerPage);
+
+        IPagedList<PublicImage> ListOfImages(int imagesPerPage, int page);
+
+
         void SaveComment(int id, string name, string commentBody, string emailAddress);
 
         void RemoveComment(int id);

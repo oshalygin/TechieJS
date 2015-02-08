@@ -1,5 +1,9 @@
 ﻿@model TN.Models.UploadPublicImageViewModel
 
+@{
+    Layout = null;
+}
+
 @using (Html.BeginForm("NewImageUpload", "Imagedump", FormMethod.Post, new { enctype = "multipart/form-data", @class = "sky-form" }))
 {
     @Html.AntiForgeryToken()

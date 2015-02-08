@@ -75,6 +75,19 @@ namespace TN.BLL.Utility
 
                 }
 
+                if (path == ImagePath.PublicImage)
+                {
+                    Image objImage = Image.FromFile(FullImagePath(photoUrl + ".png", path));
+                    int imgWidth = objImage.Width;
+                    int imgHeight = objImage.Height;
+
+
+
+                    ResizeStream(imgWidth, imgHeight, file.InputStream, FullImagePath((photoUrl + ".png"), path));
+                    return BlogImageDatabasePath.Substring(1) + returnUrl;
+
+                }
+
                 return null;
 
 

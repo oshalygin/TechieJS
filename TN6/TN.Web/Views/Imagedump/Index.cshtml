@@ -1,4 +1,7 @@
-﻿@model TN.Models.UploadPublicImageViewModel
+﻿
+@model PagedList.IPagedList<PublicImage>
+
+
 
 @{
     ViewBag.Title = "Image Dump";
@@ -19,103 +22,38 @@
 <!--=== Content Part ===-->
 <div class="container content">
     <div class="gallery-page">
+    
+        @{
+            Html.RenderAction("ImageUploadForm", "Imagedump");
+        }
 
-        @Html.Partial("_NewImageUpload")
-
-       
+ 
         <hr class="margin-bottom-30">
-
-
-
         <div class="row margin-bottom-20">
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/1.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/1.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
+            @foreach (var image in Model)
+            {
+                 <div class="col-md-3 col-sm-6">
+                    <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="@image.Description" href=@image.ImagePath>
+                        <span class="overlay-zoom">
+                            <img alt="@image.Description" src=@image.ImagePath class="img-responsive">
+                            <span class="zoom-icon"></span>
+                        </span>
+                    </a>
+                </div>
 
 
-
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/2.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/2.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/3.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/3.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/4.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/4.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
+            }
         </div>
-
-        <div class="row margin-bottom-20">
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/5.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/5.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/6.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/6.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/7.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/7.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="Project Title" href="~/Content/img/main/8.jpg">
-                    <span class="overlay-zoom">
-                        <img alt="" src="~/Content/img/main/8.jpg" class="img-responsive">
-                        <span class="zoom-icon"></span>
-                    </span>
-                </a>
-            </div>
-        </div>
-
-        <hr class="margin-bottom-30">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
 
 
 
-        <div class="text-right">
-            <ul class="pagination">
-                <li><a href="#">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li class="active"><a>3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">Next</a></li>
-            </ul>
-        </div>
-    </div><!--/gallery-page-->
+
+            <hr class="margin-bottom-30">
+
+
+
+        </div><!--/gallery-page-->
 </div><!--/container-->
 <!--=== End Content Part ===-->
 @section scripts{

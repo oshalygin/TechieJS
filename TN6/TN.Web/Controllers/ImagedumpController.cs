@@ -21,12 +21,28 @@ namespace TN.Web.Controllers
 
 
 
-        [HttpGet]
-        public ActionResult Index()
+        [ChildActionOnly]
+        public ActionResult ImageUploadForm()
         {
-            return View();
+            return View("_NewImageUpload");
+        }
+
+
+        [HttpGet]
+        public ActionResult Index(int? page)
+        {
+            const int imagesPerPage = 8;
+            int pageNumber = page ?? 1;
+
+            var images = _db.ListOfImages(pageNumber, imagesPerPage);
+
+            //var listOfImages = _db.ImageList();
+
+            return View(images);
 
         }
+
+      
 
         //TODO: FIX THE DATABINDING
 
