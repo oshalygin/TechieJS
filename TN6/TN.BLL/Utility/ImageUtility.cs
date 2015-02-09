@@ -77,11 +77,9 @@ namespace TN.BLL.Utility
 
                 if (path == ImagePath.PublicImage)
                 {
-                    file.SaveAs(FullImagePath((photoUrl + fileExtension), path));
-
-
-                    //ResizeStream(imgWidth, imgHeight, file.InputStream, FullImagePath((photoUrl + ".png"), path));
-                    return BlogImageDatabasePath.Substring(1) + fileExtension;
+                
+                    //Return the original saved image path with ending "_original"
+                    return PublicImageDatabasePath.Substring(1) + photoUrlOriginal;
 
                 }
 
