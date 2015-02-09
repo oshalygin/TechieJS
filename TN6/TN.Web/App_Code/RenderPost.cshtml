@@ -20,6 +20,7 @@
         </div>
         <h2><a href="#">@post.Title</a></h2>
         <div class="blog-post-tags">
+            
             <ul class="list-unstyled list-inline blog-info">
                 <li><i class="fa fa-calendar"></i> @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.Date.Month) @post.Date.Day, @post.Date.Year</li>
                 <li><i class="fa fa-pencil"></i> Oleg Shalygin</li>
@@ -43,6 +44,7 @@
                 </li>
             </ul>
         </div>
+        <hr/>
     
             @Html.Raw(post.Body)
     

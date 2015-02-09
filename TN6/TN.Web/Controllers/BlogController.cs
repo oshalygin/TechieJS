@@ -37,11 +37,14 @@ namespace TN.Web.Controllers
             return View(posts);
         }
 
+        //TODO: Need multiple search term option
+
         public ActionResult SearchResults()
         {
             const int resultsPerPage = 6;
             const int pageNumber = 1;
-            string searchTerm = "Testing";
+            string searchTerm = "office";
+            searchTerm = searchTerm.ToLower();
             var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
 
 

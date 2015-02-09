@@ -27,8 +27,16 @@ namespace TN.DAL
 
             if (post == null)
             {
-                return new Post();
+                return new Post
+                {
+                   Views = 0
+                };
             }
+
+            post.Views += 1;
+            context.Posts.AddOrUpdate(post);
+            context.Entry(post).State = EntityState.Modified;
+            context.SaveChanges();
 
             return post;
         }
@@ -39,7 +47,6 @@ namespace TN.DAL
 
             Tag tag = context.Tags.FirstOrDefault(x => x.Name.ToLower() == tagName.ToLower()) ??
                       new Tag() { Name = tagName, TimesTagWasUsed = 1 };
-
 
             return tag;
 
@@ -56,6 +63,7 @@ namespace TN.DAL
             post.Preview = string.Concat(body.BlogPreviewTruncate(), "...");
 
             post.Date = date;
+            post.Views = 0;
             post.PhotoPath = photoPath;
             post.DateEdited = DateTime.Now;
 
@@ -260,22 +268,12 @@ namespace TN.DAL
             return context.Posts
                 .Include(a => a.Tags)
                 .Include(b => b.Comments)
-                .Where(c => c.Title.ToLower().StartsWith(searchTerm.ToLower()) || searchTerm == null)
-                .Where(d=>d.Tags.Contains(GetTag(searchTerm.ToLower())))
+                .Where(c => (c.Title.Contains(searchTerm) || c.Tags.Any(d => d.Name.StartsWith(searchTerm))) || searchTerm == null)                
                 .OrderByDescending(x => x.Title)
                 .ToPagedList(page, resultsPerPage);
 
         }
 
-        public List<Post> TestResultsList(string searchTerm)
-        {
-            TNDbContext context = DataContext;
-            return context.Posts
-                .Where(c => c.Title.StartsWith(searchTerm) || searchTerm == null)
-                .OrderBy(x => x.Title)
-                .ToList();
-
-        }
 
 
 

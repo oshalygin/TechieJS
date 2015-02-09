@@ -52,29 +52,33 @@
         </div><!--/col-md-2-->
 
         <div class="col-md-10">
-            <span class="results-number">About 384,907 results</span>
+            @if (@Model.Count == 0)
+            {
+                <span class="results-number">@Model.Count NO SEARCH RESULTS FOUND, PLEASE SEARCH AGAIN</span>
+            }
+            else if (@Model.Count == 1)
+            {
+                <span class="results-number">@Model.Count SEARCH RESULT FOUND</span>
+            }
+            else
+            {
+                <span class="results-number">@Model.Count SEARCH RESULTS FOUND</span>
+            }
 
-
-            @foreach (var post in Model)
+            @foreach (Post post in Model)
             {
 
                 <div class="inner-results">
                     <h3>@Html.ActionLink(@post.Title, "Post", "Blog", new { UrlTitle = post.UrlTitle }, null)</h3>
                     <ul class="list-inline up-ul">
-                        <li>en.wikipedia.org/wiki/Web_design‎</li>
-                        <li class="btn-group">
-                            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                More<i class="fa fa-caret-down"></i>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul role="menu" class="dropdown-menu">
-                                <li><a href="#">Share</a></li>
-                                <li><a href="#">Similar</a></li>
-                                <li><a href="#">Advanced search</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Wrapbootstrap</a></li>
-                        <li><a href="#">Dribbble</a></li>
+                        <li>http://www.techiejs.com/Blog/Post/@post.UrlTitle‎</li>
+
+                        @foreach (Tag tag in post.Tags)
+                        {
+                            <li>@Html.ActionLink(tag.Name + " ", "Tags", "Blog", new { tagName = tag.Name }, null)</li>
+                        }
+
+
                     </ul>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut orci urna. Morbi blandit enim eget risus posuere dapibus. Vestibulum velit nisi, tempus in placerat non, auctor eu purus. Morbi suscipit porta libero, ac tempus tellus consectetur non. Praesent eget consectetur nunc. Aliquam erat volutpat. Suspendisse ultrices eros eros, consectetur facilisis urna posuere id.</p>
                     <ul class="list-inline down-ul">

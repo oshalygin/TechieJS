@@ -26,7 +26,10 @@ namespace TN.Models
         public string Preview { get; set; }
 
         public string PhotoPath { get; set; }
-   
+
+        public int Views { get; set; }
+
+
 
         //Navigational
 

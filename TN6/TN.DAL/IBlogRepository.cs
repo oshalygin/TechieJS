@@ -20,8 +20,6 @@ namespace TN.DAL
 
         IPagedList<Post> SearchResultList(string searchTerm, int resultsPerPage, int page);
 
-        List<Post> TestResultsList(string searchTerm);
-
         void SaveComment(int id, string name, string commentBody, string emailAddress);
 
         void RemoveComment(int id);

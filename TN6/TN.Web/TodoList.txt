@@ -1,0 +1,4 @@
+﻿
+
+-In the "Search Results" page, for the date, implement "How Long Ago".
+-Implement number of page views per post.

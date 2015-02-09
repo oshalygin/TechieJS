@@ -17,6 +17,9 @@ namespace TN.Models
 
         public string Title { get; set; }
 
+        public int Views { get; set; }
+
+
 
     }
 }
