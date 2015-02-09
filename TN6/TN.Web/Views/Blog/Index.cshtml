@@ -42,7 +42,8 @@
                 </li>
             </ul>
         </div>
-        @Html.Raw(post.Body)
+
+        @Html.Raw(post.Preview)
 
         <a href="/Blog/Post/@post.UrlTitle"><button type="button" id=@post.UrlTitle class="btn-u btn-u-sm pull-right">Read More</button></a>
         <br />

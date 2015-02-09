@@ -51,6 +51,7 @@ namespace TN.Web.Controllers
                 Title = post.Title,
                 Date = post.Date,
                 Body = post.Body,
+                Preview = post.Preview,
                 PhotoPath = post.PhotoPath
 
             };

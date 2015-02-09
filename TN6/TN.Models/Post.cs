@@ -23,6 +23,8 @@ namespace TN.Models
 
         public string Body { get; set; }
 
+        public string Preview { get; set; }
+
         public string PhotoPath { get; set; }
    
 

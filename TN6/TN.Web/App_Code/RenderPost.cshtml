@@ -6,7 +6,7 @@
 
 
 
-@helper Render(Post post, System.Web.Mvc.HtmlHelper Html, bool showComments)
+@helper Render(Post post, System.Web.Mvc.HtmlHelper Html, bool showComments, bool preview)
 {
 
     <br />
@@ -43,7 +43,10 @@
                 </li>
             </ul>
         </div>
-        @Html.Raw(post.Body)
+    
+            @Html.Raw(post.Body)
+    
+
     </div>
         <!--End Blog Post-->
     if (showComments)

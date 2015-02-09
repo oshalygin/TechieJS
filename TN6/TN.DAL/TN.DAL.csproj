@@ -90,6 +90,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TN.BLL">
+      <HintPath>..\TN.Web\Bin\TN.BLL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogRepository.cs" />

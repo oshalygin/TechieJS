@@ -4,11 +4,9 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
-using System.Web;
-using System.Web.Mvc;
 using PagedList;
+using TN.BLL.Utility;
 using TN.Models;
 
 namespace TN.DAL
@@ -16,8 +14,6 @@ namespace TN.DAL
     public class BlogRepository : RepositoryBase<TNDbContext>, IBlogRepository
     {
         private readonly bool _localDataOnly = Boolean.Parse(ConfigurationManager.AppSettings["LocalDataOnly"]);
-
-
         public Post GetPost(int? postId)
         {
             TNDbContext context = DataContext;
@@ -54,6 +50,9 @@ namespace TN.DAL
             Post post = GetPost(id);
             post.Title = title;
             post.Body = body;
+
+            post.Preview = body.BlogPreviewTruncate();
+
             post.Date = date;
             post.PhotoPath = photoPath;
             post.DateEdited = DateTime.Now;
