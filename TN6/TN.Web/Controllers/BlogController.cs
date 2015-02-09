@@ -42,10 +42,8 @@ namespace TN.Web.Controllers
             const int resultsPerPage = 6;
             const int pageNumber = 1;
             string searchTerm = "Testing";
+            var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
 
-            //var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
-
-            var posts = _db.TestResultsList(searchTerm);
 
             return View(posts);
         }

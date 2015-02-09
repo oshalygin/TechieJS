@@ -258,11 +258,12 @@ namespace TN.DAL
         {
             TNDbContext context = DataContext;
             return context.Posts
-                .Where(c => c.Title.StartsWith(searchTerm))
                 .Include(a => a.Tags)
                 .Include(b => b.Comments)
-                .OrderByDescending(x => x.Date)
-                .ToPagedList(resultsPerPage, page);
+                .Where(c => c.Title.ToLower().StartsWith(searchTerm.ToLower()) || searchTerm == null)
+                .Where(d=>d.Tags.Contains(GetTag(searchTerm.ToLower())))
+                .OrderByDescending(x => x.Title)
+                .ToPagedList(page, resultsPerPage);
 
         }
 
@@ -277,16 +278,6 @@ namespace TN.DAL
         }
 
 
-
-        //public IPagedList<Post> ListOfPosts(int postsPerPage, int page)
-        //{
-        //    TNDbContext context = DataContext;
-        //    return context.Posts
-        //        .Include(a => a.Tags)
-        //        .Include(b => b.Comments)
-        //        .OrderByDescending(x => x.Date)
-        //        .ToPagedList(postsPerPage, page);
-        //}
 
 
     }
