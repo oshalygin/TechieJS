@@ -1,5 +1,4 @@
-﻿
-@model PagedList.IPagedList<PublicImage>
+﻿@model PagedList.IPagedList<PublicImage>
 
 
 
@@ -22,17 +21,18 @@
 <!--=== Content Part ===-->
 <div class="container content">
     <div class="gallery-page">
-    
-        @{
+
+        @if (User.IsInRole("Admin"))
+        {
             Html.RenderAction("ImageUploadForm", "Imagedump");
         }
 
- 
+
         <hr class="margin-bottom-30">
         <div class="row margin-bottom-20">
             @foreach (var image in Model)
             {
-                 <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="@image.Description" href=@image.ImagePath>
                         <span class="overlay-zoom">
                             <img alt="@image.Description" src=@image.ImagePath class="img-responsive">
@@ -49,11 +49,11 @@
 
 
 
-            <hr class="margin-bottom-30">
+        <hr class="margin-bottom-30">
 
 
 
-        </div><!--/gallery-page-->
+    </div><!--/gallery-page-->
 </div><!--/container-->
 <!--=== End Content Part ===-->
 @section scripts{

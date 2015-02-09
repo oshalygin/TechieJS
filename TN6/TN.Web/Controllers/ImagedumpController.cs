@@ -20,7 +20,6 @@ namespace TN.Web.Controllers
         }
 
 
-
         [ChildActionOnly]
         public ActionResult ImageUploadForm()
         {
@@ -42,10 +41,10 @@ namespace TN.Web.Controllers
 
         }
 
-      
 
- 
 
+
+        [Authorize(Roles = "Admin")]
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult NewImageUpload(UploadPublicImageViewModel model, HttpPostedFileBase file)
@@ -55,12 +54,12 @@ namespace TN.Web.Controllers
             {
                 string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.PublicImage);
                 _db.SavePublicImage(model.Description, photoPath);
-                
+
                 return RedirectToAction("Index", "Imagedump");
 
             }
 
-            return View("Index",model);
+            return View("Index", model);
         }
     }
 }
