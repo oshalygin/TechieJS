@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 using PagedList;
 using TN.BLL.Utility;
 using TN.DAL;
@@ -39,14 +40,21 @@ namespace TN.Web.Controllers
 
         //TODO: Need multiple search term option
 
-        public ActionResult SearchResults()
+        public ActionResult SearchResults(string searchTerm)
         {
             const int resultsPerPage = 6;
             const int pageNumber = 1;
-            string searchTerm = "office";
+            //string searchTerm = "office";
+            if (searchTerm.IsNullOrWhiteSpace())
+            {
+                searchTerm = "";
+            }
+            ViewBag.SearchedFor = searchTerm;
             searchTerm = searchTerm.ToLower();
             var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
 
+            //Fix Device
+            _db.SaveSearch(searchTerm, "Development Device");
 
             return View(posts);
         }

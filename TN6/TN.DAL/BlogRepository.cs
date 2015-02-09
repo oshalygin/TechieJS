@@ -29,7 +29,7 @@ namespace TN.DAL
             {
                 return new Post
                 {
-                   Views = 0
+                    Views = 0
                 };
             }
 
@@ -160,6 +160,7 @@ namespace TN.DAL
             TNDbContext context = DataContext;
             Comment comment = new Comment();
             Post post = GetPost(id);
+            post.Views -= 1;
 
             comment.Name = name;
             comment.Body = HttpUtility.HtmlEncode(commentBody);
@@ -268,9 +269,24 @@ namespace TN.DAL
             return context.Posts
                 .Include(a => a.Tags)
                 .Include(b => b.Comments)
-                .Where(c => (c.Title.Contains(searchTerm) || c.Tags.Any(d => d.Name.StartsWith(searchTerm))) || searchTerm == null)                
-                .OrderByDescending(x => x.Title)
+                .Where(c => (c.Title.Contains(searchTerm) || c.Tags.Any(d => d.Name.StartsWith(searchTerm))) || searchTerm == null)
+                .OrderByDescending(x => x.Views)
                 .ToPagedList(page, resultsPerPage);
+
+        }
+
+        public void SaveSearch(string searchTerm, string device)
+        {
+            TNDbContext context = DataContext;
+            Search newSearch = new Search
+            {
+                Date = DateTime.Now,
+                Device = device,
+                SearchTerm = searchTerm
+            };
+            context.Searches.Add(newSearch);
+            context.Entry(newSearch).State = EntityState.Added;
+            context.SaveChanges();
 
         }
 

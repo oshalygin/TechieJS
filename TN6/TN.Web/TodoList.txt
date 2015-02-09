@@ -1,4 +1,30 @@
 ﻿
+TODO:
+-------------------------------------------------------------------------------
 
--In the "Search Results" page, for the date, implement "How Long Ago".
+-Implement Search functionality throughout the page
+-Allow multiple search terms that are all inclusive
+
+-Fix validation issues with comments
+-Save search results
+
+
+DONE:
+--------------------------------------------------------------------------------
 -Implement number of page views per post.
+-In the "Search Results" page, for the date, implement "How Long Ago".
+-Getting double implementation for the "views" when posting a comment.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

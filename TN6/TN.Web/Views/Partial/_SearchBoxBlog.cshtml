@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    string searchTerm = null;
 }
 
 
@@ -8,9 +9,9 @@
     @Html.AntiForgeryToken()
 
     <div class="input-group margin-bottom-40">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="search" class="form-control" id="searchTerm" name="searchTerm" placeholder="Search">
         <span class="input-group-btn">
-            <button class="btn-u" type="button">Go</button>
+            <button class="btn-u" type="submit">Go</button>
         </span>
     </div>
 }

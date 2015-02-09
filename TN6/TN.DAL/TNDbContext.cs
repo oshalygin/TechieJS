@@ -26,5 +26,7 @@ namespace TN.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<PublicImage> PublicImages { get; set; }
 
+        public DbSet<Search> Searches { get; set; }
+
     }
 }

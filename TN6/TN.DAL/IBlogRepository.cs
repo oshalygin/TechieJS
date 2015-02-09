@@ -22,6 +22,8 @@ namespace TN.DAL
 
         void SaveComment(int id, string name, string commentBody, string emailAddress);
 
+        void SaveSearch(string searchTerm, string device);
+
         void RemoveComment(int id);
 
         Comment GetComment(int id);
