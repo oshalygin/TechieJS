@@ -9,7 +9,7 @@ namespace TN.BLL.Utility
     public static class StringExt
     {
 
-        private const int _MAXPREVIEWLENGTH = 900;
+        private const int _MAXPREVIEWLENGTH = 1800;
         public static string BlogPreviewTruncate(this string value)
         {
             if (string.IsNullOrEmpty(value))

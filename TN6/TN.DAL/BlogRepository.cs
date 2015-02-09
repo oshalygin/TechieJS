@@ -51,7 +51,7 @@ namespace TN.DAL
             post.Title = title;
             post.Body = body;
 
-            post.Preview = body.BlogPreviewTruncate();
+            post.Preview = string.Concat(body.BlogPreviewTruncate(), "...");
 
             post.Date = date;
             post.PhotoPath = photoPath;
