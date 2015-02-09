@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace TN.Models
 {
@@ -13,6 +14,7 @@ namespace TN.Models
         public int PostId { get; set; }
 
         [Required]
+        [AllowHtml]
         [DisplayName("Message")]
         public string Body { get; set; }
         public DateTime Date { get; set; }

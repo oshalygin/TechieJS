@@ -5,6 +5,8 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
+using System.Web;
+using System.Web.UI;
 using PagedList;
 using TN.BLL.Utility;
 using TN.Models;
@@ -152,7 +154,7 @@ namespace TN.DAL
             Post post = GetPost(id);
 
             comment.Name = name;
-            comment.Body = commentBody;
+            comment.Body = HttpUtility.HtmlEncode(commentBody);
             comment.Email = emailAddress;
             comment.Date = DateTime.Now;
 

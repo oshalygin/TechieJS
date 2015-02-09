@@ -40,8 +40,9 @@
             <div class="col-md-7 col-md-offset-0">
                 @if (User.Identity.IsAuthenticated)
                 {
+                    @Html.HiddenFor(x=>x.Name)
                     @Html.DisplayFor(x => x.Name, new { @class = "form-control" })
-
+                    
                 }
                 else
                 {
@@ -57,6 +58,7 @@
 
                 @if (User.Identity.IsAuthenticated)
                 {
+                    @Html.HiddenFor(x=>x.Email)
                     @Html.DisplayFor(x => x.Email, new { @class = "form-control" })
 
                 }
@@ -76,6 +78,7 @@
         @Html.LabelFor(x => x.Body)
         <div class="row margin-bottom-20">
             <div class="col-md-11 col-md-offset-0">
+                
                 @Html.TextAreaFor(x => x.Body, new { @class = "form-control", rows = "8" })
                 @Html.ValidationMessageFor(m => m.Body, null, new { @class = "help-inline" })
             </div>
