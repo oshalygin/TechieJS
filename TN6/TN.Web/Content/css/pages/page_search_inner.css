@@ -1,13 +1,13 @@
-/*Page_Search1_Block
+/*Search Block Version 2
 ------------------------------------*/
-.search-block {
+.search-block-v2 {
 	margin-bottom: 50px;
 	padding: 50px 0 58px;
 	border-bottom: 1px solid #eee;
 	background: url(../../img/breadcrumbs.png) repeat;
 }
 
-.search-block h2 {
+.search-block-v2 h2 {
 	font-size: 24px;
 	font-weight: 200;
 	text-align: center;
@@ -44,7 +44,7 @@
 }
 
 .s-results .related-search a:hover {
-	color: #72c02c;
+	color: #3498DB;
 }
 
 .s-results .related-search hr {
@@ -84,7 +84,7 @@
 }
 
 .s-results .inner-results h3 a:hover {
-	color: #72c02c;
+	color: #3498DB;
 }
 
 .s-results .inner-results img {
@@ -104,7 +104,7 @@
 }
 
 .s-results .up-ul li a:hover {
-	color: #72c02c;
+	color: #3498DB;
 }
 
 /*btn-group 'dropdown'*/
@@ -153,7 +153,7 @@
 }
 
 .s-results .down-ul li a {
-	color: #72c02c;
+	color: #3498DB;
 }
 
 .s-results .star-vote li {

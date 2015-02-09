@@ -35,12 +35,9 @@
         <div class="col-md-3 magazine-page">
             <!-- Search Bar -->
             <div class="headline headline-md"><h4>Search the Blog</h4></div>
-            <div class="input-group margin-bottom-40">
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-btn">
-                    <button class="btn-u" type="button">Go</button>
-                </span>
-            </div>
+            @{
+                Html.RenderAction("BlogSearchBox", "Partial");
+            }
             <!-- End Search Bar -->
             <!-- Blog 
                  -->

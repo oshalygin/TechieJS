@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("SearchResults", "Blog", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="input-group margin-bottom-40">
+        <input type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+            <button class="btn-u" type="button">Go</button>
+        </span>
+    </div>
+}

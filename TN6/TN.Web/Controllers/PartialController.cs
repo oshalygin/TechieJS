@@ -41,5 +41,11 @@ namespace TN.Web.Controllers
 
             return View("_ListOfMostCommonTagsPartial");
         }
+
+        [ChildActionOnly]
+        public ActionResult BlogSearchBox()
+        {
+            return View("_SearchBoxBlog");
+        }
 	}
 }

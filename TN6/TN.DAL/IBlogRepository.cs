@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using PagedList;
 using TN.Models;
@@ -17,6 +18,9 @@ namespace TN.DAL
 
         IPagedList<PublicImage> ListOfImages(int imagesPerPage, int page);
 
+        IPagedList<Post> SearchResultList(string searchTerm, int resultsPerPage, int page);
+
+        List<Post> TestResultsList(string searchTerm);
 
         void SaveComment(int id, string name, string commentBody, string emailAddress);
 

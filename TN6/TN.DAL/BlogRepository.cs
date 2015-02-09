@@ -254,7 +254,29 @@ namespace TN.DAL
                 .ToPagedList(imagesPerPage, page);
         }
 
-       
+        public IPagedList<Post> SearchResultList(string searchTerm, int resultsPerPage, int page)
+        {
+            TNDbContext context = DataContext;
+            return context.Posts
+                .Where(c => c.Title.StartsWith(searchTerm))
+                .Include(a => a.Tags)
+                .Include(b => b.Comments)
+                .OrderByDescending(x => x.Date)
+                .ToPagedList(resultsPerPage, page);
+
+        }
+
+        public List<Post> TestResultsList(string searchTerm)
+        {
+            TNDbContext context = DataContext;
+            return context.Posts
+                .Where(c => c.Title.StartsWith(searchTerm) || searchTerm == null)
+                .OrderBy(x => x.Title)
+                .ToList();
+
+        }
+
+
 
         //public IPagedList<Post> ListOfPosts(int postsPerPage, int page)
         //{

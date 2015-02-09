@@ -739,7 +739,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="page_gallery.html" />
+    <Content Include="page_search_inner.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1749,6 +1749,8 @@
     <Content Include="Views\Home\Error500.cshtml" />
     <Content Include="Views\Imagedump\Index.cshtml" />
     <Content Include="Views\Imagedump\_NewImageUpload.cshtml" />
+    <Content Include="Views\Partial\_SearchBoxBlog.cshtml" />
+    <Content Include="Views\Blog\SearchResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

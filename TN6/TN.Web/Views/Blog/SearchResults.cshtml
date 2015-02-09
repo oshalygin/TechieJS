@@ -1,0 +1,113 @@
+﻿@model PagedList.IPagedList<Post>
+
+@{
+    ViewBag.Title = "Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section extraStyles{
+
+    <link href="~/Content/css/pages/page_search_inner.css" rel="stylesheet" />
+}
+
+@Html.Partial("_BreadCrumbs")
+
+@using (Html.BeginForm("SearchResults", "Blog", FormMethod.Get))
+{
+    <div class="search-block-v2">
+        <div class="container">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Search again</h2>
+                <div class="input-group">
+
+                    <input type="search" class="form-control" name="searchTerm" placeholder="Search the blog">
+                    <span class="input-group-btn">
+                        <button class="btn-u" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!--/container-->
+<!--=== End Search Block Version 2 ===-->
+<!--=== Search Results ===-->
+<div class="container s-results margin-bottom-50">
+    <div class="row">
+        <div class="col-md-2 hidden-xs related-search">
+            <div class="row">
+                <div class="col-md-12 col-sm-4">
+                    <h3>Trending</h3>
+                    <ul class="list-unstyled">
+                        <li>@Html.ActionLink("Home Page", "Index", "Blog")</li>
+                        <li>@Html.ActionLink("Terms And Conditions", "TermsOfService", "Home")</li>
+                        <li>@Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")</li>
+                    </ul>
+                    <hr>
+                </div>
+
+
+            </div>
+        </div><!--/col-md-2-->
+
+        <div class="col-md-10">
+            <span class="results-number">About 384,907 results</span>
+
+
+            @foreach (var post in Model)
+            {
+
+                <div class="inner-results">
+                    <h3>@Html.ActionLink(@post.Title, "Post", "Blog", new { UrlTitle = post.UrlTitle }, null)</h3>
+                    <ul class="list-inline up-ul">
+                        <li>en.wikipedia.org/wiki/Web_design‎</li>
+                        <li class="btn-group">
+                            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                More<i class="fa fa-caret-down"></i>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="#">Share</a></li>
+                                <li><a href="#">Similar</a></li>
+                                <li><a href="#">Advanced search</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Wrapbootstrap</a></li>
+                        <li><a href="#">Dribbble</a></li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut orci urna. Morbi blandit enim eget risus posuere dapibus. Vestibulum velit nisi, tempus in placerat non, auctor eu purus. Morbi suscipit porta libero, ac tempus tellus consectetur non. Praesent eget consectetur nunc. Aliquam erat volutpat. Suspendisse ultrices eros eros, consectetur facilisis urna posuere id.</p>
+                    <ul class="list-inline down-ul">
+
+                        <li>3 years ago - By Anthon Brandley</li>
+                        <li>234,034 views</li>
+                        <li><a href="#">Web designer</a></li>
+                    </ul>
+                </div>
+
+
+            }
+
+
+
+            <hr>
+
+
+
+            <div class="margin-bottom-30"></div>
+
+            <div class="text-left">
+
+                @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
+
+
+
+
+
+
+
+            </div>
+        </div><!--/col-md-10-->
+    </div>
+</div><!--/container-->
+<!--=== End Search Results ===-->

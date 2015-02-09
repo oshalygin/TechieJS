@@ -37,6 +37,21 @@ namespace TN.Web.Controllers
             return View(posts);
         }
 
+        public ActionResult SearchResults()
+        {
+            const int resultsPerPage = 6;
+            const int pageNumber = 1;
+            string searchTerm = "Testing";
+
+            //var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
+
+            var posts = _db.TestResultsList(searchTerm);
+
+            return View(posts);
+        }
+
+        
+
 
 
         [Authorize]
@@ -192,5 +207,9 @@ namespace TN.Web.Controllers
 
             return RedirectToAction("Post", "Blog", new { UrlTitle = postTitle });
         }
+
+
+        
+        
     }
 }
