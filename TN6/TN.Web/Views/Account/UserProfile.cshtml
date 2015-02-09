@@ -52,6 +52,10 @@
 
                                 @using (Html.BeginForm("UserProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
+
+                                    @Html.AntiForgeryToken()
+
+
                                     @Html.HiddenFor(x => x.FirstName)
                                     @Html.HiddenFor(x => x.LastName)
                                     @Html.HiddenFor(x => x.Company)
@@ -59,7 +63,7 @@
                                     @Html.HiddenFor(x => x.PhotoPath)
                                     @Html.HiddenFor(x => x.Title)
 
-                                    @Html.AntiForgeryToken()
+
                                     @Html.TextBoxFor(x => x.File, new { id = "fu-my-simple-upload", type = "file", style = "display:none;" })
                                     @Html.ValidationMessageFor(x => x.File)
                                     <br />
