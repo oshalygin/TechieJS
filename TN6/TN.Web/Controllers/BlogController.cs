@@ -49,7 +49,7 @@ namespace TN.Web.Controllers
             {
                 searchTerm = "";
             }
-            ViewBag.SearchedFor = searchTerm;
+            ViewBag.SearchedFor = string.Concat("\"", searchTerm, "\"");
             searchTerm = searchTerm.ToLower();
             var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
 
@@ -59,7 +59,7 @@ namespace TN.Web.Controllers
             return View(posts);
         }
 
-        
+
 
 
 
@@ -188,9 +188,9 @@ namespace TN.Web.Controllers
         public ActionResult NewComment(int? postId)
         {
             CommentViewModel viewModel = new CommentViewModel();
-            if (TempData["CommentModelState"]!=null)
+            if (TempData["CommentModelState"] != null)
             {
-                viewModel = (CommentViewModel) TempData["CommentModelState"];
+                viewModel = (CommentViewModel)TempData["CommentModelState"];
             }
             ViewBag.ViewModel = viewModel;
             ViewBag.postId = postId;
@@ -206,11 +206,11 @@ namespace TN.Web.Controllers
             if (ModelState.IsValid)
             {
                 _db.SaveComment(model.PostId, model.Name, model.Body, model.Email);
-      
+
                 return RedirectToAction("Post", "Blog", new { UrlTitle = postTitle });
             }
             TempData["CommentModelState"] = model;
-            
+
             //Working on carrying the validation errors over.
             //TempData["CommentValidationErrors"] = ModelState;
 
@@ -218,7 +218,7 @@ namespace TN.Web.Controllers
         }
 
 
-        
-        
+
+
     }
 }
