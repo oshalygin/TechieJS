@@ -11,7 +11,8 @@ namespace TN.Models
         public int Id { get; set; }
         public string SearchTerm { get; set; }
 
-        public string Device { get; set; }
+        public string Browser { get; set; }
+        public string OperatingSystem { get; set; }
 
         public DateTime Date { get; set; }
 

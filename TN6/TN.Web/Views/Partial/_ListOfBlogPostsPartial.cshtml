@@ -17,7 +17,8 @@
                 string title = post.Title;
 
                 <li>
-                    @(Html.ActionLink(title, "Post", "Blog", new { id = post.Id }, null))
+                   
+                    @(Html.ActionLink(title, "Post", "Blog", new { urlTitle = post.UrlTitle }, null))
                     <small>@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.Date.Month) @post.Date.Day, @post.Date.Year</small>
                 </li>
             }

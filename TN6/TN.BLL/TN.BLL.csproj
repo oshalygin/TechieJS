@@ -93,6 +93,7 @@
     <Compile Include="Utility\ImagePath.cs" />
     <Compile Include="Utility\ImageUtility.cs" />
     <Compile Include="Utility\StringExt.cs" />
+    <Compile Include="Utility\UserOperatingSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

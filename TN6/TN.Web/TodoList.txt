@@ -2,11 +2,10 @@
 TODO:
 -------------------------------------------------------------------------------
 
--Implement Search functionality throughout the page
+-Implement Search on top header
 -Allow multiple search terms that are all inclusive
-
+-Implement Device reading for search functionality
 -Fix validation issues with comments
-
 
 
 DONE:
@@ -20,7 +19,10 @@ DONE:
 
 
 
-
+TOO FRUSTRATING:
+---------------------------------------------------------------------------------
+-Search results on the Search page should be via AJAX with a flashing screen.
+-Fix Footnote links to different blog posts
 
 
 

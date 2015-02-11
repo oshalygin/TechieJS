@@ -1,10 +1,11 @@
 ﻿@using System.Activities.Statements
+@using TN.BLL.Utility
 @model PagedList.IPagedList<Post>
 
 @{
-    ViewBag.Title = "Search Results";
+    ViewBag.Title = "Search Results for  " + ViewBag.SearchedFor;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string searchedFor = ViewBag.SearchedFor;
+
 }
 
 @section extraStyles{
@@ -14,6 +15,7 @@
 
 @Html.Partial("_BreadCrumbs")
 
+
 @using (Html.BeginForm("SearchResults", "Blog", FormMethod.Get))
 {
     <div class="search-block-v2">
@@ -22,11 +24,10 @@
                 <h2>Search again</h2>
                 <div class="input-group">
 
-                    <input type="search" class="form-control" name="searchTerm" placeholder="Search the blog">
+                    <input type="search" class="form-control" name="searchTerm">
                     <span class="input-group-btn">
                         <button class="btn-u" type="button"><i class="fa fa-search"></i></button>
                     </span>
-
                 </div>
             </div>
         </div>
@@ -50,96 +51,16 @@
                 </div>
 
 
+
+
             </div>
         </div><!--/col-md-2-->
-
-        <div class="col-md-10">
-            <br/>
-            Searched for: 
-            @searchedFor
-            @if (@Model.Count == 0)
-            {
-                <span class="results-number">@Model.Count RESULTS FOUND</span>
-            }
-            else if (@Model.Count == 1)
-            {
-                <span class="results-number">@Model.Count SEARCH RESULT FOUND</span>
-            }
-            else
-            {
-                <span class="results-number">@Model.Count SEARCH RESULTS FOUND</span>
-            }
-
-            @foreach (Post post in Model)
-            {
-                TimeSpan days = DateTime.Now.Date - @post.Date;
-                int oneYear = 365;
-
-                <div class="inner-results">
-                    <h3>@Html.ActionLink(@post.Title, "Post", "Blog", new { UrlTitle = post.UrlTitle }, null)</h3>
-                    <ul class="list-inline up-ul">
-                        <li>http://www.techiejs.com/Blog/Post/@post.UrlTitle‎</li>
-
-                        @foreach (Tag tag in post.Tags)
-                        {
-                            <li>@Html.ActionLink(tag.Name + " ", "Tags", "Blog", new { tagName = tag.Name }, null)</li>
-                        }
+        @Html.Partial("_SearchQueryResults", Model)
 
 
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut orci urna. Morbi blandit enim eget risus posuere dapibus. Vestibulum velit nisi, tempus in placerat non, auctor eu purus. Morbi suscipit porta libero, ac tempus tellus consectetur non. Praesent eget consectetur nunc. Aliquam erat volutpat. Suspendisse ultrices eros eros, consectetur facilisis urna posuere id.</p>
-                    <ul class="list-inline down-ul">
-
-                        <li>
-                            @if (days.Days == 0)
-                            {
-                                @: Today
-                            }
-                            else if (days.Days < oneYear && days.Days != 0)
-                            {
-                                @days.Days
-                                @: Ago
-                            }
-                            else if (days.Days > oneYear)
-                            {
-                                int numberOfYears = days.Days / oneYear;
-                                int daysRemainder = days.Days % oneYear;
-                                @numberOfYears
-                                @: Years and
-                                @daysRemainder
-                                @: days
-                            }
-
-                            - By Oleg Shalygin
-                        </li>
-                        <li><i class="fa fa-cloud"></i> @post.Views Views</li>
-                        <li><a href="#">Web designer</a></li>
-                    </ul>
-                </div>
-
-
-            }
-
-
-
-            <hr>
-
-
-
-            <div class="margin-bottom-30"></div>
-
-            <div class="text-left">
-
-                @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
-
-
-
-
-
-
-
-            </div>
-        </div><!--/col-md-10-->
     </div>
 </div><!--/container-->
 <!--=== End Search Results ===-->
+@section scripts{
+    
+}

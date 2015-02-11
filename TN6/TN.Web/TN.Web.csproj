@@ -252,6 +252,7 @@
     <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\fonts\Simple-Line-Icons.dev.svg" />
     <Content Include="Content\css\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\css\ie8.css" />
     <Content Include="Content\css\line-icons.css" />
     <Content Include="Content\css\pages\background-blur.png" />
     <Content Include="Content\css\pages\blog.css" />
@@ -339,6 +340,7 @@
     <Content Include="Content\css\plugins\sky-forms\custom-sky-forms.css" />
     <Content Include="Content\css\plugins\sky-forms\demo.css" />
     <Content Include="Content\css\plugins\sky-forms\font-awesome.css" />
+    <Content Include="Content\css\plugins\sky-forms\ie8.css" />
     <Content Include="Content\css\plugins\sky-forms\sky-forms-black.css" />
     <Content Include="Content\css\plugins\sky-forms\sky-forms-blue.css" />
     <Content Include="Content\css\plugins\sky-forms\sky-forms-green.css" />
@@ -903,6 +905,8 @@
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.placeholder.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1488,6 +1492,7 @@
     <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\custom-sky-forms.css" />
     <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\demo.css" />
     <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\font-awesome.css" />
+    <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\ie8.css" />
     <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\sky-forms-black.css" />
     <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\sky-forms-blue.css" />
     <Content Include="Scripts\plugins\sky-forms\version-2.0.1\css\sky-forms-green.css" />
@@ -1752,6 +1757,7 @@
     <Content Include="Views\Imagedump\_NewImageUpload.cshtml" />
     <Content Include="Views\Partial\_SearchBoxBlog.cshtml" />
     <Content Include="Views\Blog\SearchResults.cshtml" />
+    <Content Include="Views\Blog\_SearchQueryResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

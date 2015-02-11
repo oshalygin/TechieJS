@@ -1,0 +1,78 @@
+﻿@using TN.BLL.Utility
+@model PagedList.IPagedList<Post>
+
+
+<div class="col-md-10" id="resultsTable">
+    @if (@Model.Count == 0)
+    {
+        <span class="results-number">@Model.Count RESULTS FOUND</span>
+    }
+    else if (@Model.Count == 1)
+    {
+        <span class="results-number">@Model.Count SEARCH RESULT FOUND</span>
+    }
+    else
+    {
+        <span class="results-number">@Model.Count SEARCH RESULTS FOUND</span>
+    }
+
+    @foreach (Post post in Model)
+    {
+        TimeSpan days = DateTime.Now.Date - @post.Date;
+        const int oneYear = 365;
+
+        <div class="inner-results">
+            <h3>@Html.ActionLink(@post.Title, "Post", "Blog", new { UrlTitle = post.UrlTitle }, null)</h3>
+            <ul class="list-inline up-ul">
+                <li>http://www.techiejs.com/Blog/Post/@post.UrlTitle‎</li>
+
+                @foreach (Tag tag in post.Tags)
+                {
+                    <li>@Html.ActionLink(tag.Name + " ", "Tags", "Blog", new { tagName = tag.Name }, null)</li>
+                }
+
+
+            </ul>
+            <p>
+                @Html.Raw(string.Concat(post.Body.SearchPreviewLength(), "..."))
+            </p>
+            <ul class="list-inline down-ul">
+
+                <li>
+                    @if (days.Days == 0)
+                    {
+                        @: Today
+                            }
+                    else if (days.Days < oneYear && days.Days != 0)
+                    {
+                        @days.Days
+                        @: Ago
+                            }
+                    else if (days.Days > oneYear)
+                    {
+                        int numberOfYears = days.Days / oneYear;
+                        int daysRemainder = days.Days % oneYear;
+                        @numberOfYears
+                        @: Years and
+                        @daysRemainder
+                        @: days
+                            }
+
+                    - By Oleg Shalygin
+                </li>
+                <li><i class="fa fa-cloud"></i> @post.Views Views</li>
+                <li><a href="#">Web designer</a></li>
+            </ul>
+        </div>
+        <hr />
+    }
+
+    <div class="margin-bottom-30"></div>
+
+    <div class="text-left">
+
+        @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
+
+    </div>
+</div>
+

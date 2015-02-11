@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using Microsoft.Ajax.Utilities;
 using PagedList;
 using TN.BLL.Utility;
@@ -44,17 +45,22 @@ namespace TN.Web.Controllers
         {
             const int resultsPerPage = 6;
             const int pageNumber = 1;
-            //string searchTerm = "office";
             if (searchTerm.IsNullOrWhiteSpace())
             {
                 searchTerm = "";
             }
+
             ViewBag.SearchedFor = string.Concat("\"", searchTerm, "\"");
             searchTerm = searchTerm.ToLower();
             var posts = _db.SearchResultList(searchTerm, resultsPerPage, pageNumber);
 
-            //Fix Device
-            _db.SaveSearch(searchTerm, "Development Device");
+            //TODO: Fix Device
+
+            string os = UserOperatingSystem.GetUserOs(Request.UserAgent);
+            string browser = string.Concat("OS-->", os, ", Browser-->", Request.Browser.Type);
+
+            _db.SaveSearch(searchTerm, os, browser);
+
 
             return View(posts);
         }

@@ -265,23 +265,28 @@ namespace TN.DAL
 
         public IPagedList<Post> SearchResultList(string searchTerm, int resultsPerPage, int page)
         {
+
+            string[] terms = searchTerm.Split(null);
+
             TNDbContext context = DataContext;
             return context.Posts
                 .Include(a => a.Tags)
                 .Include(b => b.Comments)
                 .Where(c => (c.Title.Contains(searchTerm) || c.Tags.Any(d => d.Name.StartsWith(searchTerm))) || searchTerm == null)
+                //.Where(x => (terms.All(y => x.Title.Contains(y))) || terms == null)
                 .OrderByDescending(x => x.Views)
                 .ToPagedList(page, resultsPerPage);
 
         }
 
-        public void SaveSearch(string searchTerm, string device)
+        public void SaveSearch(string searchTerm, string operatingSystem, string browser)
         {
             TNDbContext context = DataContext;
             Search newSearch = new Search
             {
                 Date = DateTime.Now,
-                Device = device,
+                OperatingSystem = operatingSystem,
+                Browser = browser,
                 SearchTerm = searchTerm
             };
             context.Searches.Add(newSearch);
