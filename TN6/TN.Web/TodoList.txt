@@ -2,10 +2,15 @@
 TODO:
 -------------------------------------------------------------------------------
 
--Implement Search on top header
--Allow multiple search terms that are all inclusive
--Implement Device reading for search functionality
+-Implement Search in Top Header on the Search Results Page
 -Fix validation issues with comments
+-Test Images on Posts
+-Implement a code block into Posts.
+
+
+TOO FRUSTRATING:
+---------------------------------------------------------------------------------
+-Search results on the Search page should be via AJAX with a flashing screen.
 
 
 DONE:
@@ -14,18 +19,9 @@ DONE:
 -In the "Search Results" page, for the date, implement "How Long Ago".
 -Getting double implementation for the "views" when posting a comment.
 -Save search results	
-
-
-
-
-
-TOO FRUSTRATING:
----------------------------------------------------------------------------------
--Search results on the Search page should be via AJAX with a flashing screen.
+-Implement Device reading for search functionality
+-Allow multiple search terms that are all inclusive
 -Fix Footnote links to different blog posts
-
-
-
 
 
 

@@ -47,5 +47,13 @@ namespace TN.Web.Controllers
         {
             return View("_SearchBoxBlog");
         }
+
+        [ChildActionOnly]
+        public ActionResult TopSearchBox()
+        {
+            return View("_TopSearchBox");
+        }
+
+
 	}
 }

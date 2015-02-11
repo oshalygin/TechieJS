@@ -1758,6 +1758,7 @@
     <Content Include="Views\Partial\_SearchBoxBlog.cshtml" />
     <Content Include="Views\Blog\SearchResults.cshtml" />
     <Content Include="Views\Blog\_SearchQueryResults.cshtml" />
+    <Content Include="Views\Partial\_TopSearchBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
