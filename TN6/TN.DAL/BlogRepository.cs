@@ -309,7 +309,16 @@ namespace TN.DAL
 
         }
 
+        public void DeactivatePost(int id)
+        {
+            TNDbContext context = DataContext;
+            Post post = GetPost(id);
+            post.Inactive = true;
 
+            context.Entry(post).State = EntityState.Modified;
+            context.SaveChanges();
+
+        }
 
 
 

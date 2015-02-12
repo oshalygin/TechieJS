@@ -29,6 +29,7 @@ namespace TN.Models
 
         public int Views { get; set; }
 
+        public bool Inactive { get; set; }
 
 
         //Navigational

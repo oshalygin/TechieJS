@@ -24,6 +24,8 @@ namespace TN.DAL
 
         void SaveSearch(string searchTerm, string operatingSystem, string browser);
 
+        void DeactivatePost(int id);
+
         void RemoveComment(int id);
 
         Comment GetComment(int id);

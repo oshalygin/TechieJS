@@ -88,13 +88,23 @@ namespace TN.Web.Controllers
             StringBuilder tagList = new StringBuilder();
             foreach (Tag tag in post.Tags)
             {
-                tagList.AppendFormat("{0}", tag.Name);
+                tagList.AppendFormat("{0} ", tag.Name);
             }
 
             ViewBag.Tags = string.IsNullOrEmpty(tagList.ToString()) ? "" : tagList.ToString();
 
             return View(model);
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Deactivate(int id)
+        {
+            _db.DeactivatePost(id);
+            return RedirectToAction("Index", "Blog");
+        }
+
+
 
         [Authorize]
         [HttpPost]

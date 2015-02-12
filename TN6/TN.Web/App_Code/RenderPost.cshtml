@@ -47,11 +47,20 @@
         </div>
         <hr/>
     
-            @Html.Raw(post.Body)
+        @Html.Raw(post.Body)
     
 
     </div>
-        <!--End Blog Post-->
+    if (User.IsInRole("Admin"))
+     {
+         @Html.ActionLink("Edit ", "Edit", "Blog", new {id = post.Id}, null)
+
+         @Html.ActionLink("Deactivate", "Deactivate", "Blog", new {id = post.Id}, null)
+
+     }
+
+
+    <!--End Blog Post-->
     if (showComments)
     {
         if (@post.Comments.Count > 0)
@@ -70,7 +79,7 @@
                   
                     @*TODO://Fix*@
                     @if (User.IsInRole("Admin"))
-                    {
+{
 
                         @Html.ActionLink("Edit ", "EditComment", "Blog", new { id = comment.Id }, null)
 

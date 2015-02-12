@@ -2,10 +2,12 @@
 TODO:
 -------------------------------------------------------------------------------
 
--Implement Search in Top Header on the Search Results Page
 -Fix validation issues with comments
 -Test Images on Posts
 -Implement a code block into Posts.
+-Modify validation rules for posting new posts for "titles"
+-Show all deactivated posts.
+-Disable searching for deactivated posts.
 
 
 TOO FRUSTRATING:
@@ -22,7 +24,7 @@ DONE:
 -Implement Device reading for search functionality
 -Allow multiple search terms that are all inclusive
 -Fix Footnote links to different blog posts
-
-
+-When editing a post it combines the tag into one word.
+-Implement a post deleltion feature
 
 
