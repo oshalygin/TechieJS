@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.WebPages;
 using Microsoft.Ajax.Utilities;
 using PagedList;
@@ -67,7 +69,8 @@ namespace TN.Web.Controllers
 
 
 
-        [Authorize]
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -96,7 +99,7 @@ namespace TN.Web.Controllers
             return View(model);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Deactivate(int id)
         {

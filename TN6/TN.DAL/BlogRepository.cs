@@ -129,6 +129,7 @@ namespace TN.DAL
             return context.Posts
                 .Include(a => a.Tags)
                 .Include(b => b.Comments)
+                .Where(z => z.Inactive == false)
                 .OrderByDescending(x => x.Date)
                 .ToPagedList(postsPerPage, page);
         }
@@ -139,6 +140,7 @@ namespace TN.DAL
             return context.Posts
                 .Include(a => a.Tags)
                 .Include(b => b.Comments)
+                .Where(z => z.Inactive == false)
                 .OrderByDescending(x => x.Date)
                 .Take(3)
                 .ToList();
@@ -270,21 +272,24 @@ namespace TN.DAL
             TNDbContext context = DataContext;
             var query = context.Posts
                 .Include(a => a.Tags)
-                .Include(b => b.Comments);
+                .Include(b => b.Comments)
+                .Where(z => z.Inactive == false);
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-            
+
                 string[] terms = searchTerm.Split(null);
 
 
-                
+
                 foreach (var term in terms)
                 {
                     string search = term;
                     query = query.Where(post => (post.Title.Contains(search) || post.Tags.Any(tag => tag.Name.StartsWith(search))));
                 }
             }
+
+
 
             return query
                 .OrderByDescending(x => x.Views)
