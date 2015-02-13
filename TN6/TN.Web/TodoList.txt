@@ -10,7 +10,7 @@ TODO:
 -Allow searching with comma separator.
 -Revamp the whole user registration and login information.
 -Verify that everything looks acceptable in all Browsers(IE, Firefox, Chrome and Opera)
-
+-Fix Search Results URL PrintOut
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------

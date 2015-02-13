@@ -25,7 +25,7 @@
         <div class="inner-results">
             <h3>@Html.ActionLink(@post.Title, "Post", "Blog", new { UrlTitle = post.UrlTitle }, null)</h3>
             <ul class="list-inline up-ul">
-                <li>http://www.techiejs.com/Blog/Post/@post.UrlTitle‎</li>
+                <li>@Html.ActionLink("http://www.techiejs.com/Blog/Post/@post.UrlTitle","Post", "Blog", new{UrlTitle = post.UrlTitle}, null)</li>
 
                 @foreach (Tag tag in post.Tags)
                 {
