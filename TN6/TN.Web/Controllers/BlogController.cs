@@ -61,11 +61,22 @@ namespace TN.Web.Controllers
 
             _db.SaveSearch(searchTerm, os, browser);
 
-            
+
             return View(posts);
         }
 
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult InactivePosts(int? page)
+        {
+            var currentPage = page ?? 1;
+            const int postsPerPage = 6;
+
+            var inactivePosts = _db.ListOfInactivePosts(currentPage, postsPerPage);
+
+            ViewBag.inactivePage = true;
+            return View("Index", inactivePosts);
+        }
 
 
 

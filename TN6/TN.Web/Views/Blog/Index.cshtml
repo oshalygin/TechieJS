@@ -6,15 +6,23 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_BlogPartial.cshtml";
+    var inactivePage = ViewBag.inactive;
 }
 @if (User.IsInRole("Admin"))
 {
+    if (inactivePage != true)
+    {
+        <h5>
+            @Html.ActionLink("Create A New Post", "Edit", "Blog")
+        </h5>
+        <h5>@Html.ActionLink("Deactivated Posts", "InactivePosts", "Blog")</h5>
+        <br />
+    }
+    else if (inactivePage == true)
+    {
+        <h5>@Html.ActionLink("Back to Active Posts", "Index", "Blog")</h5>
+    }
 
-    <h5>
-        @Html.ActionLink("Create A New Post", "Edit", "Blog")
-    </h5>
-    <h5>@Html.ActionLink("Deactivated Posts", "ListOfInactivePosts","Blog")</h5>
-    <br />
 
 }
 
@@ -31,7 +39,7 @@
                 <li><i class="fa fa-pencil"></i> Oleg Shalygin</li>
                 <li><i class="fa fa-cloud"></i> @post.Views Views</li>
                 <li><i class="fa fa-comments"></i> @post.Comments.Count Comments</li>
-                
+
             </ul>
             <ul class="list-unstyled list-inline blog-tags">
                 <li>

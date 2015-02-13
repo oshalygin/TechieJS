@@ -277,8 +277,9 @@ namespace TN.DAL
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
+                string cleanedTerm = searchTerm.Replace(",", " ");
 
-                string[] terms = searchTerm.Split(null);
+                string[] terms = cleanedTerm.Split(null);
 
 
 
@@ -288,8 +289,6 @@ namespace TN.DAL
                     query = query.Where(post => (post.Title.Contains(search) || post.Tags.Any(tag => tag.Name.StartsWith(search))));
                 }
             }
-
-
 
             return query
                 .OrderByDescending(x => x.Views)
@@ -323,6 +322,18 @@ namespace TN.DAL
             context.Entry(post).State = EntityState.Modified;
             context.SaveChanges();
 
+        }
+
+        public IPagedList<Post> ListOfInactivePosts(int page, int postsPerPage)
+        {
+            TNDbContext context = DataContext;
+
+            return context.Posts
+                .Include(a => a.Tags)
+                .Include(b => b.Comments)
+                .Where(c => c.Inactive == true)
+                .OrderByDescending(d => d.Date)
+                .ToPagedList(page, postsPerPage);
         }
 
 

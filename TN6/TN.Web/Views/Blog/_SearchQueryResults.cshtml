@@ -1,4 +1,5 @@
-﻿@using TN.BLL.Utility
+﻿@using System.Configuration
+@using TN.BLL.Utility
 @model PagedList.IPagedList<Post>
 
 
@@ -70,9 +71,9 @@
     <div class="margin-bottom-30"></div>
 
     <div class="text-left">
-
-        @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
-
+        @if (Model.Count != 0)
+        {
+            @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.MinimalWithPageCountText)
+        }
     </div>
 </div>
-
