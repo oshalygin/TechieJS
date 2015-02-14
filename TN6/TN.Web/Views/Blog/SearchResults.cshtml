@@ -1,9 +1,21 @@
 ﻿@using System.Activities.Statements
+@using Microsoft.Ajax.Utilities
 @using TN.BLL.Utility
 @model PagedList.IPagedList<Post>
 
 @{
-    ViewBag.Title = "Search Results for  " + ViewBag.SearchedFor;
+   
+    
+    if (ViewBag.SearchedFor == "\"\"")
+    {
+        ViewBag.Title = "All Search Results";
+    }
+    else
+    {
+        ViewBag.Title = "Search Results for  " + ViewBag.SearchedFor;
+    }
+        
+   
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }

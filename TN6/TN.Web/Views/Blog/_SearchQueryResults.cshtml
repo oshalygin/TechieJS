@@ -25,7 +25,7 @@
         <div class="inner-results">
             <h3>@Html.ActionLink(@post.Title, "Post", "Blog", new { UrlTitle = post.UrlTitle }, null)</h3>
             <ul class="list-inline up-ul">
-                <li>@Html.ActionLink("http://www.techiejs.com/Blog/Post/@post.UrlTitle","Post", "Blog", new{UrlTitle = post.UrlTitle}, null)</li>
+                <li>@Html.ActionLink("http://www.techiejs.com/Blog/Post/" + @post.UrlTitle,"Post", "Blog", new{UrlTitle = post.UrlTitle}, null)</li>
 
                 @foreach (Tag tag in post.Tags)
                 {
@@ -59,10 +59,9 @@
                         @: days
                             }
 
-                    - By Oleg Shalygin
                 </li>
-                <li><i class="fa fa-cloud"></i> @post.Views Views</li>
-                <li><a href="#">Web designer</a></li>
+                <li><i class="fa fa-cloud"></i> @post.Views Views</li>             
+                <li>- By Oleg Shalygin</li>
             </ul>
         </div>
         <hr />
@@ -73,7 +72,7 @@
     <div class="text-left">
         @if (Model.Count != 0)
         {
-            @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.MinimalWithPageCountText)
+            @Html.PagedListPager(Model, page => Url.Action("SearchResults", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
         }
     </div>
 </div>
