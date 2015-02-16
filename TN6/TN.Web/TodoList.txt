@@ -14,11 +14,12 @@ TODO:
 -Do not allow the same title to be posted in a new Post.  Currently huge failboat(modifies it and adds it...)
 -Cut the preview down to just 2 paragraphs worth.
 -So many bugs with the main Index page.
--Consider changing font to Toptal font.
+
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
 -Search results on the Search page should be via AJAX with a flashing screen.
+-Consider changing font to Toptal font(Don't want at the moment)
 
 
 DONE:
