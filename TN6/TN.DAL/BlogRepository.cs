@@ -60,7 +60,7 @@ namespace TN.DAL
             post.Title = title;
             post.Body = body;
 
-            post.Preview = string.Concat(body.BlogPreviewTruncate(), "...");
+            post.Preview = body.BlogPreviewTruncate();
 
             post.Date = date;
             post.Views = 0;

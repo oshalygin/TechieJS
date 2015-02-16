@@ -55,8 +55,9 @@ footer {
 body {
 	background-color: #fff;
 	color: #0e8a65;
+	/*font-family: "Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif;*/
 	font-family: "Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif;
-	line-height: 1.5;
+    line-height: 1.5;
 	font-size: 1em;
 }
 

@@ -3,14 +3,15 @@ TODO:
 -------------------------------------------------------------------------------
 
 -Fix validation issues with comments
--Test Images on Posts
--Implement a code block into Posts.
+
 -Modify validation rules for posting new posts for "titles"
 
--Allow searching with comma separator.
 -Revamp the whole user registration and login information.
 -Verify that everything looks acceptable in all Browsers(IE, Firefox, Chrome and Opera)
--Fix Search Results URL PrintOut
+-Fix comment deletion/editing.
+-Research Html.Encode online copy-pastes.
+-Implement a code block into Posts.
+-Do not allow the same title to be posted in a new Post.  Currently huge failboat
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
@@ -30,3 +31,6 @@ DONE:
 -Implement a post deleltion feature
 -Disable searching for deactivated posts.
 -Show all deactivated posts.
+-Fix Search Results URL PrintOut
+-Allow searching with comma separator
+-Test Images on Posts
