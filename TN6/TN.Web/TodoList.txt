@@ -4,15 +4,16 @@ TODO:
 
 -Fix validation issues with comments
 -Allow registration with Twitter, Facebook, Google(OAuth)
--Modify validation rules for posting new posts for "titles"
 -Revamp the whole user registration and login information.
 -Verify that everything looks acceptable in all Browsers(IE, Firefox, Chrome and Opera)
 -Download Roboto font from Google Fonts and save locally under c:\Windows\Fonts\
+-Block XSS attacks with encoding and validation rules.
+-Block SQL Injection attacks(look into)
+-Test Registration Validation
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
 -Search results on the Search page should be via AJAX with a flashing screen.
--Consider changing font to Toptal font(Don't want at the moment)
 
 
 DONE:
@@ -36,3 +37,4 @@ DONE:
 -Create a custom validation attribute for duplicate titles.
 -Do not allow the same title to be posted in a new Post.  Currently huge failboat(modifies it and adds it...)
 -Fix comment deletion/editing.
+-Modify validation rules for posting new posts for "titles"

@@ -36,29 +36,31 @@
 
 
         @Html.LabelFor(x => x.Name)
+        <code>required</code>
         <div class="row margin-bottom-20">
             <div class="col-md-7 col-md-offset-0">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    @Html.HiddenFor(x=>x.Name)
+                    @Html.HiddenFor(x => x.Name)
                     @Html.DisplayFor(x => x.Name, new { @class = "form-control" })
-                    
+
                 }
                 else
                 {
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "help-inline" })
+                    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "note note-error" })
                 }
             </div>
         </div>
 
         @Html.LabelFor(x => x.Email)
+        <code>optional</code>
         <div class="row margin-bottom-20">
             <div class="col-md-7 col-md-offset-0">
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    @Html.HiddenFor(x=>x.Email)
+                    @Html.HiddenFor(x => x.Email)
                     @Html.DisplayFor(x => x.Email, new { @class = "form-control" })
 
                 }
@@ -76,14 +78,15 @@
 
 
         @Html.LabelFor(x => x.Body)
+        <code>required</code>
         <div class="row margin-bottom-20">
             <div class="col-md-11 col-md-offset-0">
-                
+
                 @Html.TextAreaFor(x => x.Body, new { @class = "form-control", rows = "8" })
                 @Html.ValidationMessageFor(m => m.Body, null, new { @class = "help-inline" })
             </div>
         </div>
-
+        @Html.ValidationSummary()
         <p><button class="btn-u" type="submit" id="newCommentSubmitButton">Post Comment</button></p>
 
     </div>

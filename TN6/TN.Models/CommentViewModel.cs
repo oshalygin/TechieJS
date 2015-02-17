@@ -23,6 +23,7 @@ namespace TN.Models
         public string Name { get; set; }
 
         [DisplayName("Email Address")]
+        [EmailAddress]
         public string Email { get; set; }
 
         public bool IsAnonymous { get; set; }

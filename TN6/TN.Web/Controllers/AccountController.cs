@@ -174,10 +174,6 @@ namespace TN.Web.Controllers
                     PhotoPath = "/Content/img/user_default.png"
 
 
-
-
-
-
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

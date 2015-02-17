@@ -12,6 +12,7 @@ using TN.BLL.Utility;
 using TN.DAL;
 using TN.Models;
 
+
 namespace TN.Web.Controllers
 {
     public class BlogController : Controller
@@ -222,13 +223,23 @@ namespace TN.Web.Controllers
         [ChildActionOnly]
         public ActionResult NewComment(int? postId)
         {
+
+            //TODO:  FINISH
+
             CommentViewModel viewModel = new CommentViewModel();
+            var modelstate = new ModelStateDictionary();
             if (TempData["CommentModelState"] != null)
             {
                 viewModel = (CommentViewModel)TempData["CommentModelState"];
+                modelstate = (ModelStateDictionary)TempData["ModelStateErrors"];
+
             }
             ViewBag.ViewModel = viewModel;
             ViewBag.postId = postId;
+            
+            ModelState.AddModelError("test", "test");
+
+
             return View("_PostCommentPartial", viewModel);
         }
 
@@ -245,6 +256,7 @@ namespace TN.Web.Controllers
                 return RedirectToAction("Post", "Blog", new { UrlTitle = postTitle });
             }
             TempData["CommentModelState"] = model;
+            TempData["ModelStateErrors"] = ModelState;
 
             //Working on carrying the validation errors over.
             //TempData["CommentValidationErrors"] = ModelState;
