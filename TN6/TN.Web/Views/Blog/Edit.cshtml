@@ -45,16 +45,18 @@
                     <!--Inputs-->
                     <h4>Title</h4>
                     @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationSummary(null, new { @class = "text-danger" })
+                    @Html.ValidationMessage("DoublePost", new { @class = "help-inline" })
+
+
 
                     <h4>Date</h4>
                     @Html.EditorFor(model => date, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Date, null, new { @class = "text-danger" })
 
 
                     <h4>Tags</h4>
                     @Html.EditorFor(model => tags, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Date, null, new { @class = "text-danger" })
 
 
                     <!--End Inputs-->
@@ -62,7 +64,7 @@
                     <!--Textarea-->
                     <h4>Post Body</h4>
                     @Html.TextAreaFor(model => model.Body, new { @class = "form-control", rows = "7", cols = "10" })
-                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Body, null, new { @class = "text-danger" })
                     <div class="margin-bottom-40"></div>
 
                     <h4>Cover Photo</h4>
