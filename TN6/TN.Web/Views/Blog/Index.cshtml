@@ -51,9 +51,9 @@
                 </li>
             </ul>
         </div>
-        <div class="blogpost">
+        <span class="blogpost">
             @Html.Raw(post.Preview)
-        </div>
+        </span>
 
         <a href="/Blog/Post/@post.UrlTitle"><button type="button" id=@post.UrlTitle class="btn-u btn-u-sm pull-right">Continue Reading</button></a>
         <br />
@@ -61,7 +61,7 @@
     </div>
     
 }
-</div>
+
 
 
 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
