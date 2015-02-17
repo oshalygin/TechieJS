@@ -28,7 +28,7 @@
 
 @foreach (var post in Model)
 {
-    <div class="blog margin-bottom-40">
+    <div class="blog margin-bottom-40" onload="prettyPrint()">
         <div class="blog-img">
             <img class="img-responsive" src=@post.PhotoPath alt="">
         </div>
@@ -51,15 +51,17 @@
                 </li>
             </ul>
         </div>
+        <div class="blogpost">
+            @Html.Raw(post.Preview)
+        </div>
 
-        @Html.Raw(post.Preview)
-        <br />
         <a href="/Blog/Post/@post.UrlTitle"><button type="button" id=@post.UrlTitle class="btn-u btn-u-sm pull-right">Continue Reading</button></a>
         <br />
         <br />
     </div>
+    
 }
-
+</div>
 
 
 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.TwitterBootstrapPager)

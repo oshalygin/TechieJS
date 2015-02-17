@@ -46,9 +46,9 @@
             </ul>
         </div>
         <hr/>
-    
-        @Html.Raw(post.Body)
-    
+        <div class="blogpost">
+            @Html.Raw(post.Body)
+        </div>
 
     </div>
     if (User.IsInRole("Admin"))
