@@ -20,7 +20,6 @@ namespace TN.DAL
 
         IPagedList<Post> SearchResultList(string searchTerm, int resultsPerPage, int page);
 
-
         IPagedList<Post> ListOfInactivePosts(int page, int postsPerPage);
         
         void SaveComment(int id, string name, string commentBody, string emailAddress);
@@ -28,6 +27,8 @@ namespace TN.DAL
         void SaveSearch(string searchTerm, string operatingSystem, string browser);
 
         void DeactivatePost(int id);
+
+        bool ValidateDuplicateTitle(string title);
 
         void RemoveComment(int id);
 

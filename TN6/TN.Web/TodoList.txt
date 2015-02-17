@@ -10,7 +10,7 @@ TODO:
 -Verify that everything looks acceptable in all Browsers(IE, Firefox, Chrome and Opera)
 -Fix comment deletion/editing.
 
-
+-Create a custom validation attribute for duplicate titles.
 -Do not allow the same title to be posted in a new Post.  Currently huge failboat(modifies it and adds it...)
 -So many bugs with the main Index page.
 
@@ -38,3 +38,4 @@ DONE:
 -Allow searching with comma separator
 -Test Images on Posts
 -Implement a code block into Posts.
+-When you edit a post, it resets the ViewCount back to 1.

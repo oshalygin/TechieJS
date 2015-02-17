@@ -1586,7 +1586,7 @@ i.icon-color-aqua,
 i.icon-color-brown,
 i.icon-color-dark-blue,
 i.icon-color-light-grey,
-i.icon-color-light-green, {
+i.icon-color-light-green {
     background: none;
 }
 
@@ -2177,9 +2177,9 @@ blockquote {
     blockquote h1,
     blockquote h2,
     blockquote span {
-        font-size: 18px;
+        font-size: 16px;
         margin: 0 0 8px;
-        line-height: 24px;
+        line-height: 20px;
     }
 
     /*Blockquote Styles*/

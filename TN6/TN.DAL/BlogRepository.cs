@@ -52,6 +52,17 @@ namespace TN.DAL
 
         }
 
+        public bool ValidateDuplicateTitle(string title)
+        {
+            TNDbContext context = DataContext;
+            var post = context.Posts.FirstOrDefault(x => x.Title == title);
+            if (post == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string photoPath)
         {
             TNDbContext context = DataContext;
@@ -63,7 +74,6 @@ namespace TN.DAL
             post.Preview = body.BlogPreviewTruncate();
 
             post.Date = date;
-            post.Views = 0;
             post.PhotoPath = photoPath;
             post.DateEdited = DateTime.Now;
 

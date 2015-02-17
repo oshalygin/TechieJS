@@ -12,7 +12,6 @@ namespace TN.Models
     public class EditPostViewModel
     {
         public int Id { get; set; }
-
         public string Title { get; set; }
 
         public DateTime Date { get; set; }

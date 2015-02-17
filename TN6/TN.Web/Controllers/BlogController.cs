@@ -126,14 +126,21 @@ namespace TN.Web.Controllers
         public ActionResult Edit(EditPostViewModel model, DateTime date, string tags, HttpPostedFileBase file)
         {
 
-
-
-            if (ModelState.IsValid)
+            bool validateTitle = _db.ValidateDuplicateTitle(model.Title);
+            if (validateTitle)
             {
-                string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.BlogPostImage);
 
-                Post post = _db.UpdatePost(model.Id, model.Title, model.Body, date, tags, photoPath);
-                return RedirectToAction("Post", new { UrlTitle = post.UrlTitle });
+                if (ModelState.IsValid)
+                {
+                    string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.BlogPostImage);
+                    Post post = _db.UpdatePost(model.Id, model.Title, model.Body, date, tags, photoPath);
+                    return RedirectToAction("Post", new { UrlTitle = post.UrlTitle });
+
+                }
+            }
+            if (validateTitle == false)
+            {
+                ModelState.AddModelError("DoublePost", "This title is already used");
 
             }
 
