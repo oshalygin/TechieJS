@@ -2,7 +2,7 @@
 TODO:
 -------------------------------------------------------------------------------
 
--Fix validation issues with comments
+
 -Allow registration with Twitter, Facebook, Google(OAuth)
 -Revamp the whole user registration and login information.
 -Verify that everything looks acceptable in all Browsers(IE, Firefox, Chrome and Opera)
@@ -10,6 +10,7 @@ TODO:
 -Block XSS attacks with encoding and validation rules.
 -Block SQL Injection attacks(look into)
 -Test Registration Validation
+-Cannot edit posts due to duplicate title validation
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
@@ -38,3 +39,4 @@ DONE:
 -Do not allow the same title to be posted in a new Post.  Currently huge failboat(modifies it and adds it...)
 -Fix comment deletion/editing.
 -Modify validation rules for posting new posts for "titles"
+-Fix validation issues with comments

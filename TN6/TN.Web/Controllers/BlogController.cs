@@ -128,10 +128,9 @@ namespace TN.Web.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(EditPostViewModel model, DateTime date, string tags, HttpPostedFileBase file)
         {
-
-            bool validateTitle = _db.ValidateDuplicateTitle(model.Title);
-            if (validateTitle)
-            {
+            //Unnecessary right now.
+            //bool validateTitle = _db.ValidateDuplicateTitle(model.Title);
+            
 
                 if (ModelState.IsValid)
                 {
@@ -140,12 +139,8 @@ namespace TN.Web.Controllers
                     return RedirectToAction("Post", new { UrlTitle = post.UrlTitle });
 
                 }
-            }
-            if (validateTitle == false)
-            {
-                ModelState.AddModelError("DoublePost", "This title is already used");
-
-            }
+            
+            
 
             //Something went wrong
             model.Date = date;
