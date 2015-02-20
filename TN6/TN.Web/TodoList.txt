@@ -11,6 +11,7 @@ TODO:
 -Block SQL Injection attacks(look into)
 -Test Registration Validation
 -Cannot edit posts due to duplicate title validation
+-Add revised date to posts.
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
@@ -40,3 +41,4 @@ DONE:
 -Fix comment deletion/editing.
 -Modify validation rules for posting new posts for "titles"
 -Fix validation issues with comments
+-Button on search page doesn't work.

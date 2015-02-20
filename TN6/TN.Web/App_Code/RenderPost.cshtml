@@ -20,7 +20,7 @@
         </div>
         <h2><a href="#">@post.Title</a></h2>
         <div class="blog-post-tags">
-            
+
             <ul class="list-unstyled list-inline blog-info">
                 <li><i class="fa fa-calendar"></i> @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.Date.Month) @post.Date.Day, @post.Date.Year</li>
                 <li><i class="fa fa-pencil"></i> Oleg Shalygin</li>
@@ -33,7 +33,7 @@
                 {
                     <li><i class="fa fa-comments"></i> <a href="#startOfComments">@post.Comments.Count Comments</a></li>
                 }
-            
+
             </ul>
             <ul class="list-unstyled list-inline blog-tags">
                 <li>
@@ -45,28 +45,34 @@
                 </li>
             </ul>
         </div>
-        <hr/>
+        <hr />
         <div class="blogpost">
             @Html.Raw(post.Body)
         </div>
 
     </div>
     if (User.IsInRole("Admin"))
-     {
-         @Html.ActionLink("Edit ", "Edit", "Blog", new {id = post.Id}, null)
+    {
+        @Html.ActionLink("Edit ", "Edit", "Blog", new { id = post.Id }, null)
 
-         @Html.ActionLink("Deactivate", "Deactivate", "Blog", new {id = post.Id}, null)
+        @Html.ActionLink("Deactivate", "Deactivate", "Blog", new { id = post.Id }, null)
 
-     }
+    }
 
+    if (@post.Date != @post.DateEdited)
+    {
+        <div class="blogpost">
+            [Date Edited: 
+            @post.DateEdited
+            ]
+        </div>
+    }
+    <hr />
 
     <!--End Blog Post-->
     if (showComments)
     {
-        if (@post.Comments.Count > 0)
-        {
-            <hr />
-        }
+
         foreach (Comment comment in post.Comments.OrderBy(x => x.Date))
         {
             <div class="media" id="startOfComments">
@@ -76,10 +82,10 @@
                 <div class="media-body">
                     <h4 class="media-heading"><span>@comment.Name </span></h4><h5><span class="pull-right">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(comment.Date.Month) @comment.Date.Day,  @comment.Date.Year  - @comment.Date.ToString("t") </span></h5>
                     <p>@Html.Raw(comment.Body.Replace("\n", "<br />"))</p>
-                  
+
                     @*TODO://Fix*@
                     @if (User.IsInRole("Admin"))
-{
+                    {
 
                         @Html.ActionLink("Edit ", "EditComment", "Blog", new { id = comment.Id }, null)
 
@@ -92,7 +98,7 @@
             </div><!--/media-->
 
         }
-       
+
     }
 
 
