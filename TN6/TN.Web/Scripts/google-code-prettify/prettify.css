@@ -1,7 +1,7 @@
-/* Hemisu Light */
-/* Original theme - http://noahfrederick.com/vim-color-scheme-hemisu/ */
+/* Tomorrow Night Eighties Theme */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
 .prettyprint {
-  background: white;
+  background: #2d2d2d;
   font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
   font-size: 12px;
   line-height: 1.5;
@@ -10,16 +10,16 @@
 }
 
 .pln {
-  color: #111111;
+  color: #cccccc;
 }
 
 @media screen {
   .str {
-    color: #739200;
+    color: #99cc99;
   }
 
   .kwd {
-    color: #739200;
+    color: #cc99cc;
   }
 
   .com {
@@ -27,47 +27,47 @@
   }
 
   .typ {
-    color: #ff0055;
+    color: #6699cc;
   }
 
   .lit {
-    color: #538192;
+    color: #f99157;
   }
 
   .pun {
-    color: #111111;
+    color: #cccccc;
   }
 
   .opn {
-    color: #111111;
+    color: #cccccc;
   }
 
   .clo {
-    color: #111111;
+    color: #cccccc;
   }
 
   .tag {
-    color: #111111;
+    color: #f2777a;
   }
 
   .atn {
-    color: #739200;
+    color: #f99157;
   }
 
   .atv {
-    color: #ff0055;
+    color: #66cccc;
   }
 
   .dec {
-    color: #111111;
+    color: #f99157;
   }
 
   .var {
-    color: #111111;
+    color: #f2777a;
   }
 
   .fun {
-    color: #538192;
+    color: #6699cc;
   }
 }
 @media print, projection {

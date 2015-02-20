@@ -2178,9 +2178,9 @@ blockquote {
     blockquote h1,
     blockquote h2,
     blockquote span {
-        font-size: 16px;
+        font-size: 12px;
         margin: 0 0 8px;
-        line-height: 20px;
+        line-height: 12px;
     }
 
     /*Blockquote Styles*/
