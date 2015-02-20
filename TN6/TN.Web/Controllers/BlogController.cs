@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Web.UI;
 using System.Web.WebPages;
 using Microsoft.Ajax.Utilities;
 using PagedList;
@@ -224,21 +226,21 @@ namespace TN.Web.Controllers
         public ActionResult NewComment(int? postId)
         {
 
-            //TODO:  FINISH
-
             CommentViewModel viewModel = new CommentViewModel();
-            var modelstate = new ModelStateDictionary();
+            var modelstate = new List<string>();
             if (TempData["CommentModelState"] != null)
             {
                 viewModel = (CommentViewModel)TempData["CommentModelState"];
-                modelstate = (ModelStateDictionary)TempData["ModelStateErrors"];
+                modelstate = (List<string>)TempData["ErrorList"];
 
             }
             ViewBag.ViewModel = viewModel;
             ViewBag.postId = postId;
-            
-            ModelState.AddModelError("test", "test");
 
+            foreach(var err in modelstate)
+            {
+                ModelState.AddModelError("", err);
+            }
 
             return View("_PostCommentPartial", viewModel);
         }
@@ -256,10 +258,11 @@ namespace TN.Web.Controllers
                 return RedirectToAction("Post", "Blog", new { UrlTitle = postTitle });
             }
             TempData["CommentModelState"] = model;
-            TempData["ModelStateErrors"] = ModelState;
 
-            //Working on carrying the validation errors over.
-            //TempData["CommentValidationErrors"] = ModelState;
+            var errors = GetModelStateErrors.GetListOfErrors(ModelState);
+            List<string> errorList = errors.Select(err => err.ErrorMessage).ToList();
+
+            TempData["ErrorList"] = errorList;
 
             return RedirectToAction("Post", "Blog", new { UrlTitle = postTitle });
         }

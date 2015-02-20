@@ -54,7 +54,6 @@
         </div>
 
         @Html.LabelFor(x => x.Email)
-        <code>optional</code>
         <div class="row margin-bottom-20">
             <div class="col-md-7 col-md-offset-0">
 
@@ -86,9 +85,10 @@
                 @Html.ValidationMessageFor(m => m.Body, null, new { @class = "help-inline" })
             </div>
         </div>
-        @Html.ValidationSummary()
+        
         <p><button class="btn-u" type="submit" id="newCommentSubmitButton">Post Comment</button></p>
-
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     </div>
     <!-- End Comment Form -->
 }

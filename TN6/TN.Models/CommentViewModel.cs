@@ -13,13 +13,13 @@ namespace TN.Models
     {
         public int PostId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Comment Body Required")]
         [AllowHtml]
         [DisplayName("Message")]
         public string Body { get; set; }
         public DateTime Date { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
         [DisplayName("Email Address")]

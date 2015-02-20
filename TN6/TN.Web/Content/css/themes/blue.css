@@ -885,6 +885,30 @@ input[type="checkbox"].input-validation-error {
     color: #b94a48;
 }
 
+.validation-summary-errors li {
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+box-sizing: border-box;
+color: rgb(238, 147, 147);
+cursor: default;
+display: block;
+font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-style: normal;
+font-variant: normal;
+font-weight: bold;
+height: 15px;
+line-height: 15px;
+margin-top: 6px;
+padding-bottom: 0px;
+padding-left: 1px;
+padding-right: 1px;
+padding-top: 0px;
+width: 252px;
+}
+
 .validation-summary-valid {
     display: none;
 }
