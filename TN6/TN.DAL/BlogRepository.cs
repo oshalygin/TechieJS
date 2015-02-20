@@ -346,6 +346,22 @@ namespace TN.DAL
                 .ToPagedList(page, postsPerPage);
         }
 
+        public void SaveEmailTransmission(string name, string email, string body)
+        {
+            TNDbContext context = DataContext;
+
+            Contact contact = new Contact
+            {
+                Name = name,
+                EmailAddress = email,
+                Body = body
+            };
+
+            context.Entry(contact).State = EntityState.Added;
+            context.SaveChanges();
+
+        }
+
 
 
     }

@@ -90,6 +90,8 @@
     <Compile Include="Common\FileSizeAttribute.cs" />
     <Compile Include="Common\FileTypeAttribute.cs" />
     <Compile Include="Common\MustBeTrueAttribute.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="ContactViewModel.cs" />
     <Compile Include="CustomUser.cs" />
     <Compile Include="DefaultHashPassword.cs" />
     <Compile Include="EditPostViewModel.cs" />

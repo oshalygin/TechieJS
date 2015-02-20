@@ -130,17 +130,17 @@ namespace TN.Web.Controllers
         {
             //Unnecessary right now.
             //bool validateTitle = _db.ValidateDuplicateTitle(model.Title);
-            
 
-                if (ModelState.IsValid)
-                {
-                    string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.BlogPostImage);
-                    Post post = _db.UpdatePost(model.Id, model.Title, model.Body, date, tags, photoPath);
-                    return RedirectToAction("Post", new { UrlTitle = post.UrlTitle });
 
-                }
-            
-            
+            if (ModelState.IsValid)
+            {
+                string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.BlogPostImage);
+                Post post = _db.UpdatePost(model.Id, model.Title, model.Body, date, tags, photoPath);
+                return RedirectToAction("Post", new { UrlTitle = post.UrlTitle });
+
+            }
+
+
 
             //Something went wrong
             model.Date = date;
@@ -232,7 +232,7 @@ namespace TN.Web.Controllers
             ViewBag.ViewModel = viewModel;
             ViewBag.postId = postId;
 
-            foreach(var err in modelstate)
+            foreach (var err in modelstate)
             {
                 ModelState.AddModelError("", err);
             }
@@ -263,7 +263,29 @@ namespace TN.Web.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Contact()
+        {
+            ContactViewModel model = new ContactViewModel();
+            return View(model);
+        }
 
+        [HttpPost]
+
+        public ActionResult Contact(ContactViewModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.SaveEmailTransmission(model.Name, model.EmailAddress, model.Body);
+                return RedirectToAction("RedirectingSubscription", "Redirect");
+            }
+
+
+            //Something went wrong
+            return View(model);
+
+        }
 
     }
 }

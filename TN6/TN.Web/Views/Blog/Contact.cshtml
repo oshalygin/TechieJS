@@ -1,0 +1,47 @@
+﻿@model TN.Models.ContactViewModel
+
+@{
+    Layout = "~/Views/Shared/_BlogPartial.cshtml";
+    ViewBag.Title = "Contact";
+}
+
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row margin-bottom-30">
+        <div class="col-md-9 mb-margin-bottom-30">
+            <div class="headline"><h2>Shoot me a line!</h2></div>
+            <p>If you have a great idea for the page or you would like for me to cover a specific subject in-depth, feel free to shoot me an E-mail! &nbsp; If you have a specific question to a post that you do not want to leave as a comment, this is a great way to send me a private message.  Cheers!</p><br />
+            @using (Html.BeginForm("Contact", "Blog", FormMethod.Post))
+            {
+
+                @Html.LabelFor(x => x.Name)
+                <code>required</code>
+                <div class="row margin-bottom-20">
+                    <div class="col-md-7 col-md-offset-0">
+                        @Html.EditorFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x=>x.Name)
+                    </div>
+                </div>
+
+                @Html.LabelFor(x=>x.EmailAddress)
+                <code>required</code>
+                <div class="row margin-bottom-20">
+                    <div class="col-md-7 col-md-offset-0">
+                        @Html.LabelFor(x => x.EmailAddress, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                @Html.LabelFor(x=>x.Body)
+                <div class="row margin-bottom-20">
+                    <div class="col-md-11 col-md-offset-0">
+                        @Html.TextAreaFor(x => x.Body, new { @class = "form-control", rows="8" })
+                    </div>
+                </div>
+
+                <p><button type="submit" class="btn-u">Send Message</button></p>
+            }
+        </div><!--/col-md-9-->
+
+    </div><!--/row-->
+</div><!--/container-->
+<!--=== End Content Part ===-->

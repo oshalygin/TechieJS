@@ -13,6 +13,12 @@ TODO:
 -Cannot edit posts due to duplicate title validation
 -Add revised date to posts.
 -Add password reset option and email confirmation
+-Setup email subscription service(SMTP)
+-Fix Links to About/Contact page.
+-Decide if different region support will be implemented(Spanish?)
+
+
+
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------

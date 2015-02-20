@@ -28,5 +28,7 @@ namespace TN.DAL
 
         public DbSet<Search> Searches { get; set; }
 
+        public DbSet<Contact> Contacts { get; set; } 
+
     }
 }

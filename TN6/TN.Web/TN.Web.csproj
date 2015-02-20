@@ -741,7 +741,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="page_search_inner.html" />
+    <Content Include="page_contact1.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1791,6 +1791,7 @@
     <Content Include="Views\Blog\SearchResults.cshtml" />
     <Content Include="Views\Blog\_SearchQueryResults.cshtml" />
     <Content Include="Views\Partial\_TopSearchBox.cshtml" />
+    <Content Include="Views\Blog\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
