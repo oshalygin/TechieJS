@@ -12,6 +12,7 @@ TODO:
 -Test Registration Validation
 -Cannot edit posts due to duplicate title validation
 -Add revised date to posts.
+-Add password reset option and email confirmation
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
