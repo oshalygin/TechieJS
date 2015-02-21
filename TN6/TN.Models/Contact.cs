@@ -17,6 +17,6 @@ namespace TN.Models
 
         public string Body { get; set; }
 
-
+        public string UserWebSite { get; set; }
     }
 }

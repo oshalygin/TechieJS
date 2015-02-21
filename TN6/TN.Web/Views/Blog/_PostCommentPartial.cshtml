@@ -32,11 +32,8 @@
 
         @Html.HiddenFor(x => x.PostId)
 
-
-
-
         @Html.LabelFor(x => x.Name)
-        <code>required</code>
+        
         <div class="row margin-bottom-20">
             <div class="col-md-7 col-md-offset-0">
                 @if (User.Identity.IsAuthenticated)
@@ -77,7 +74,7 @@
 
 
         @Html.LabelFor(x => x.Body)
-        <code>required</code>
+        
         <div class="row margin-bottom-20">
             <div class="col-md-11 col-md-offset-0">
 

@@ -346,7 +346,7 @@ namespace TN.DAL
                 .ToPagedList(page, postsPerPage);
         }
 
-        public void SaveEmailTransmission(string name, string email, string body)
+        public void SaveEmailTransmission(string name, string email, string body, string website)
         {
             TNDbContext context = DataContext;
 
@@ -354,7 +354,9 @@ namespace TN.DAL
             {
                 Name = name,
                 EmailAddress = email,
-                Body = body
+                Body = body,
+                UserWebSite = website
+                
             };
 
             context.Entry(contact).State = EntityState.Added;

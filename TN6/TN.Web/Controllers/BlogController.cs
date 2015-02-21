@@ -277,7 +277,7 @@ namespace TN.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.SaveEmailTransmission(model.Name, model.EmailAddress, model.Body);
+                _db.SaveEmailTransmission(model.Name, model.EmailAddress, model.Body, model.UserWebSite);
                 return RedirectToAction("RedirectingSubscription", "Redirect");
             }
 

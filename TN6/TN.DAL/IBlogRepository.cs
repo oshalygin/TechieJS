@@ -46,7 +46,7 @@ namespace TN.DAL
 
         void SavePublicImage(string description, string imagePath);
 
-        void SaveEmailTransmission(string name, string email, string body);
+        void SaveEmailTransmission(string name, string email, string body, string website);
 
     }
 }
