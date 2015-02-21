@@ -14,7 +14,7 @@ TODO:
 -Add revised date to posts.
 -Add password reset option and email confirmation
 -Setup email subscription service(SMTP)
--Fix Links to About/Contact page.
+
 -Decide if different region support will be implemented(Spanish?)
 
 
@@ -49,3 +49,4 @@ DONE:
 -Modify validation rules for posting new posts for "titles"
 -Fix validation issues with comments
 -Button on search page doesn't work.
+-Fix Links to About/Contact page.
