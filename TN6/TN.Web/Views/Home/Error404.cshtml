@@ -1,13 +1,35 @@
 ﻿@{
-    ViewBag.Title = "Error404";
+    ViewBag.Title = "Error Page: 404";
 }
-<div class="container text-center" >
-    <br/>
-    <br/>
 
-    <img src="~/Content/404ErrorPage.png" alt="404 Page Not Found" />
+<link href="~/Content/css/pages/page_404_error.css" rel="stylesheet" />
+
+<div class="container content">
+    <!--Error Block-->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="error-v1">
+                <img src="/Content/img/404.jpg" alt="404 Error Page Not Found">
+                <span>404 Error:  Page Not Found</span>
+                <p>You managed to nagivate to a portion of the site that doesn't exist.</p>
+                <a class="btn-u btn-bordered" href="~/Blog/Index">Back Home</a>
+            </div>
+        </div>
+    </div>
+    <!--End Error Block-->
+</div>	
+
+
+@section appInit{
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/index.js"></script>
     
-    <br/>
-    <br/>
 
-</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+    });
+</script>
+
+
+}

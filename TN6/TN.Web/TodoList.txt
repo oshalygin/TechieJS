@@ -14,6 +14,7 @@ TODO:
 -Add revised date to posts.
 -Add password reset option and email confirmation
 -Setup email subscription service(SMTP)
+-Search box from error page doesn't work
 
 -Decide if different region support will be implemented(Spanish?)
 

@@ -1,15 +1,33 @@
-﻿
-@{
-    ViewBag.Title = "Error500";
+﻿@{
+    ViewBag.Title = "Error Page: 404";
 }
 
-<div class="container text-center">
-    <br />
-    <br />
+<link href="~/Content/css/pages/page_404_error.css" rel="stylesheet" />
 
- 
-    <img src="~/Content/img/500Error.png" alt="Internal Server Error Image" />
-    <br />
-    <br />
-
+<div class="container content">
+    <!--Error Block-->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="error-v1">
+                <img src="/Content/img/404.jpg" alt="404 Error Page Not Found">
+                <span>500 Error:  Internal Server Error</span>
+                <p>There is currently an issue with our server, please try again!</p>
+                <a class="btn-u btn-bordered" href="~/Blog/Index">Back Home</a>
+            </div>
+        </div>
+    </div>
+    <!--End Error Block-->
 </div>
+
+
+@section appInit{
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/index.js"></script>
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+}

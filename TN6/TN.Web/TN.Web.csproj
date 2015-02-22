@@ -387,6 +387,7 @@
     <Content Include="Content\css\themes\orange.css" />
     <Content Include="Content\css\themes\purple.css" />
     <Content Include="Content\css\themes\red.css" />
+    <Content Include="Content\img\404.jpg" />
     <Content Include="Content\img\500Error.png" />
     <Content Include="Content\img\background-blur.png" />
     <Content Include="Content\img\bg-black.png" />
@@ -742,6 +743,7 @@
     <Content Include="feature_form_layouts.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="page_404_error.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
