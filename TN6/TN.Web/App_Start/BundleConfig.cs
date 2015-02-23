@@ -50,7 +50,7 @@ namespace TN.Web
 
                         ));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/genericCSS").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/css/style.css",
                       "~/Content/css/line-icons.css",

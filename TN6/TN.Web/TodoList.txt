@@ -17,7 +17,7 @@ TODO:
 -Decide if different region support will be implemented(Spanish?)
 -Create a catch all http exception redirect.
 -Add a SiteMap
-
+-Fix style bundling in the _Layout page
 
 
 TOO FRUSTRATING:
