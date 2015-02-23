@@ -57,6 +57,10 @@ namespace TN.Models
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
 
+
+        [Required]
+        [RegularExpression(@"^[\w{.,'}+:?®©-]+$", ErrorMessage = "No special characters in the username")]
+        [MaxLength(12, ErrorMessage = "Username cannot be longer than 12 characters")]
         public string UserName { get; set; }
 
 
@@ -85,13 +89,13 @@ namespace TN.Models
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "You can't leave this empty")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
+        [StringLength(12, ErrorMessage = "The {0} must be at least {2} characters long and cannot exceed 12 letters", MinimumLength = 4)]
         [Display(Name = "User name")]
         [RegularExpression(@"^[a-zA-Z0-9]*$", ErrorMessage = "The username can only be comprised of letters.")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "You can't leave this empty")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        [StringLength(20, ErrorMessage = "The {0} must be at least {2} characters long and cannot exceed 20 characters", MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

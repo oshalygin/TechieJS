@@ -26,7 +26,7 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
                 var manager = new RoleManager<IdentityRole>(store);
                 var adminRole = new IdentityRole { Name = "Admin" };
                 var memberRole = new IdentityRole { Name = "Member" };
-                
+
                 manager.Create(adminRole);
                 manager.Create(memberRole);
 
@@ -38,14 +38,14 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
             {
                 var store = new UserStore<CustomUser>(context);
                 var manager = new UserManager<CustomUser>(store);
-             
-                
+
+
                 var olegUser = new CustomUser
                 {
                     UserName = "oshalygin",
                     FirstName = "Oleg",
                     LastName = "Shalygin",
-                    FullName =  "Oleg Shalygin",
+                    FullName = "Oleg Shalygin",
                     Gender = "Male",
                     DateOfBirth = new DateTime(1985, 11, 27),
                     State = "CA",
@@ -64,37 +64,44 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
                 manager.Create(olegUser, "olegoleg");
                 manager.AddToRole(olegUser.Id, "Admin");
 
-                var carlotaUser = new CustomUser
+            }
+            if (!context.Users.Any(x => x.UserName == "testuser"))
+            {
+
+                var store = new UserStore<CustomUser>(context);
+                var manager = new UserManager<CustomUser>(store);
+
+                var testUser = new CustomUser
                 {
-                    UserName = "cturcios",
-                    FirstName = "Carlota",
-                    LastName = "Turcios",
-                    FullName = "Carlota Turcios",
-                    Gender = "Female",
+                    UserName = "testuser",
+                    FirstName = "Test",
+                    LastName = "User",
+                    FullName = "Test User",
+                    Gender = "Male",
                     DateOfBirth = new DateTime(1986, 5, 19),
                     State = "CA",
-                    EmailAddress = "cturcios86@gmail.com",
+                    EmailAddress = "test@techiejs.com",
                     Phone = "818-770-9138",
                     AcceptsPrivacyPolicy = true,
                     AcceptsTerms = true,
-                    Company = "Concord University",
+                    Company = "Testing University",
                     Title = "Student",
-                    Description = "Learning to become the best Dental Hygienist ever!!",
+                    Description = "User account created to test the page",
                     PhotoPath = "/Content/img/user_default.png",
                     DateUserDetailsUpdated = DateTime.Now,
 
                 };
 
-                manager.Create(carlotaUser, "pancho");
-                manager.AddToRole(carlotaUser.Id, "Member");
-
+                manager.Create(testUser, "olegoleg");
+                manager.AddToRole(testUser.Id, "Member");
 
             }
 
 
 
-
         }
 
+
     }
+
 }
