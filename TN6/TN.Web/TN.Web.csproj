@@ -893,6 +893,7 @@
     <Content Include="Content\css\plugins\sky-forms\version-2.0.1\icons\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\LocalDebug.pubxml" />
     <None Include="Properties\PublishProfiles\oshalygin.pubxml" />
+    <None Include="Properties\PublishProfiles\techiejs.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\forms\sky-forms-ie8.js" />
     <Content Include="Scripts\google-code-prettify\lang-apollo.js" />
