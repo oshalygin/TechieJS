@@ -18,6 +18,9 @@ TODO:
 -Create a catch all http exception redirect.
 -Add a SiteMap
 -Fix style bundling in the _Layout page
+-Encode the Titles and later decode when posting back to the page.
+-Implement Google analytics
+-On all images, round out the edges.	
 
 
 TOO FRUSTRATING:

@@ -927,6 +927,7 @@
     <Content Include="Scripts\google-code-prettify\prettify.css" />
     <Content Include="Scripts\google-code-prettify\prettify.js" />
     <Content Include="Scripts\google-code-prettify\run_prettify.js" />
+    <Content Include="Scripts\googleAnalytics.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
