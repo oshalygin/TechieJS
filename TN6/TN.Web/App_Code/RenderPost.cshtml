@@ -80,7 +80,7 @@
                     <img class="media-object" src="~/Content/img/blog/default_user_56.png" alt="default comment image" />
                 </span>
                 <div class="media-body">
-                    <h4 class="media-heading"><span>@comment.Name </span></h4><h5><span class="pull-right">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(comment.Date.Month) @comment.Date.Day,  @comment.Date.Year  - @comment.Date.ToString("t") </span></h5>
+                    <h4 class="media-heading"><span>@comment.Name </span><span class="pull-right" style="font-size: 14px"> @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(comment.Date.Month) @comment.Date.Day,  @comment.Date.Year  - @comment.Date.ToString("t") </span></h4>                    
                     <p>@Html.Raw(comment.Body.Replace("\n", "<br />"))</p>
 
                     @*TODO://Fix*@

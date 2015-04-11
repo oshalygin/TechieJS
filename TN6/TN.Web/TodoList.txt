@@ -1,8 +1,6 @@
 ﻿
 TODO:
 -------------------------------------------------------------------------------
-
-
 -Allow registration with Twitter, Facebook, Google(OAuth)
 -Revamp the whole user registration and login information.
 -Verify that everything looks acceptable in all Browsers(IE, Firefox, Chrome and Opera)
@@ -21,7 +19,6 @@ TODO:
 -Encode the Titles and later decode when posting back to the page.
 -Implement Google analytics
 -On all images, round out the edges.	
-
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
@@ -55,3 +52,6 @@ DONE:
 -Fix Links to About/Contact page.
 -Search box from error page doesn't work
 -Limit the username to 8 chars
+-Fix main post page to have "comment" for 1 comment.
+-Fix how the date looks in the post for comments
+-Fix Post Titles (. and weird symbols)

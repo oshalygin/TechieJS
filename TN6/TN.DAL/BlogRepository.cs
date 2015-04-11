@@ -80,8 +80,11 @@ namespace TN.DAL
             string[] titleNames = title.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             var newTitle = new StringBuilder();
 
+
+
             for (int i = 0; i < titleNames.Length; i++)
             {
+                titleNames[i] = titleNames[i].Replace(".","");
                 newTitle.Append(titleNames[i]);
                 if (i != (titleNames.Length - 1))
                 {
@@ -89,7 +92,8 @@ namespace TN.DAL
                 }
             }
 
-            post.UrlTitle = newTitle.ToString();
+            post.UrlTitle = HttpUtility.UrlEncode(newTitle.ToString());
+
 
 
             post.Tags.Clear();
@@ -356,7 +360,7 @@ namespace TN.DAL
                 EmailAddress = email,
                 Body = body,
                 UserWebSite = website
-                
+
             };
 
             context.Entry(contact).State = EntityState.Added;
