@@ -19,6 +19,7 @@ TODO:
 -Encode the Titles and later decode when posting back to the page.
 -Implement Google analytics
 -On all images, round out the edges.	
+-Fix the counter for Tags.  It seems to be going overboard
 
 TOO FRUSTRATING:
 ---------------------------------------------------------------------------------
