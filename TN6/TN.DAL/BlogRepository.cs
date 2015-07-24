@@ -41,7 +41,7 @@ namespace TN.DAL
             return post;
         }
 
-        public Tag GetTag(string tagName)
+        public Tag CreateNewTag(string tagName)
         {
             TNDbContext context = DataContext;
 
@@ -63,95 +63,35 @@ namespace TN.DAL
             return false;
         }
 
-        public Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string photoPath)
+        public int IncrementTags(List<string> tagList)
+        {
+            TNDbContext context = DataContext;
+            
+            
+                foreach (string t in tagList)
+                {
+                    Tag tagToIncrement = context.Tags.FirstOrDefault(x => x.Name == t);
+
+                    if (tagToIncrement != null)
+                    {
+                        tagToIncrement.TimesTagWasUsed += 1;
+                        context.Tags.AddOrUpdate(tagToIncrement);
+                        context.Entry(tagToIncrement).State = EntityState.Modified;
+                    }
+                  
+                    
+                }
+            
+            return context.SaveChanges();
+        }
+
+
+
+        public bool SavePost(Post post)
         {
             TNDbContext context = DataContext;
 
-            Post post = GetPost(id);
-            post.Title = title;
-            post.Body = body;
-
-            post.Preview = body.BlogPreviewTruncate();
-
-            post.Date = date;
-            post.PhotoPath = photoPath;
-            post.DateEdited = DateTime.Now;
-
-
-            //Reserved characters
-            title = title.Replace("$", "")
-                .Replace("&", "")
-                .Replace("+", "")
-                .Replace(",", "")
-                .Replace("/", "")
-                .Replace(":", "")
-                .Replace(";", "")
-                .Replace("=", "")
-                .Replace("?", "")
-                .Replace("@", "")
-                //Unsafe unsafe
-                .Replace("<", "")
-                .Replace(">", "")
-                .Replace("#", "")
-                .Replace("%", "")
-                .Replace("{", "")
-                .Replace("}", "")
-                .Replace("|", "")
-                .Replace("\\", "")
-                .Replace("^", "")
-                .Replace("~", "")
-                .Replace("[", "")
-                .Replace("]", "")
-                .Replace("`", "");
-                
-
-
-
-
-            string[] titleNames = title.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            var newTitle = new StringBuilder();
-
-
-
-            for (int i = 0; i < titleNames.Length; i++)
-            {
-                
-                newTitle.Append(titleNames[i]);
-                if (i != (titleNames.Length - 1))
-                {
-                    newTitle.Append("-");
-                }
-            }
-
-            post.UrlTitle = newTitle.ToString();
-
-
-
-            post.Tags.Clear();
-
-            string[] tagNames = tags.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string tag in tagNames)
-            {
-                Tag tagToIncrement = context.Tags.FirstOrDefault(x => x.Name == tag);
-
-                if (tagToIncrement != null)
-                {
-                    tagToIncrement.TimesTagWasUsed += 1;
-                    context.Tags.AddOrUpdate(tagToIncrement);
-                    context.Entry(tagToIncrement).State = EntityState.Modified;
-
-                }
-
-                var tagToAdd = post.Tags.Count(x => x.Name == tag);
-                if (tagToAdd == 0)
-                {
-                    post.Tags.Add(GetTag(tag));
-                }
-
-            }
-
-
-
+            
             if (post.Id == default(int))
             {
                 context.Posts.Add(post);
@@ -164,8 +104,124 @@ namespace TN.DAL
             }
             context.SaveChanges();
 
-            return post;
+            return true;
         }
+
+        //public Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string photoPath)
+        //{
+        //    TNDbContext context = DataContext;
+
+        //    Post post = GetPost(id);
+        //    post.Title = title;
+        //    post.Body = body;
+
+        //    post.Preview = body.BlogPreviewTruncate();
+
+        //    post.Date = date;
+        //    post.PhotoPath = photoPath;
+        //    post.DateEdited = DateTime.Now;
+
+
+        //    //Reserved characters
+        //    title = title.Trim()
+        //        //Reserved characters
+        //        .Replace("$", "")
+        //        .Replace("&", "")
+        //        .Replace("+", "")
+        //        .Replace(",", "")
+        //        .Replace("/", "")
+        //        .Replace(":", "")
+        //        .Replace(";", "")
+        //        .Replace("=", "")
+        //        .Replace("?", "")
+        //        .Replace("@", "")
+        //        //Unsafe unsafe
+        //        .Replace("<", "")
+        //        .Replace(">", "")
+        //        .Replace("#", "")
+        //        .Replace("%", "")
+        //        .Replace("{", "")
+        //        .Replace("}", "")
+        //        .Replace("|", "")
+        //        .Replace("\\", "")
+        //        .Replace("^", "")
+        //        .Replace("~", "")
+        //        .Replace("[", "")
+        //        .Replace("]", "")
+        //        .Replace("`", "")
+        //        //Personal choice
+        //        .Replace("*", "")
+        //        .Replace("(", "")
+        //        .Replace(")", "")
+        //        .Replace("_", "")
+        //        .Replace(";", "")
+        //        .Replace("!", "")
+        //        .Replace(":", "")
+        //        .Replace("_", "")
+        //        .Replace("'", "");
+
+
+
+
+
+        //    string[] titleNames = title.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        //    var newTitle = new StringBuilder();
+
+
+
+        //    for (int i = 0; i < titleNames.Length; i++)
+        //    {
+
+        //        newTitle.Append(titleNames[i]);
+        //        if (i != (titleNames.Length - 1))
+        //        {
+        //            newTitle.Append("-");
+        //        }
+        //    }
+
+        //    post.UrlTitle = newTitle.ToString();
+
+
+
+        //    post.Tags.Clear();
+
+        //    string[] tagNames = tags.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        //    foreach (string tag in tagNames)
+        //    {
+        //        Tag tagToIncrement = context.Tags.FirstOrDefault(x => x.Name == tag);
+
+        //        if (tagToIncrement != null)
+        //        {
+        //            tagToIncrement.TimesTagWasUsed += 1;
+        //            context.Tags.AddOrUpdate(tagToIncrement);
+        //            context.Entry(tagToIncrement).State = EntityState.Modified;
+
+        //        }
+
+        //        var tagToAdd = post.Tags.Count(x => x.Name == tag);
+        //        if (tagToAdd == 0)
+        //        {
+        //            post.Tags.Add(CreateNewTag(tag));
+        //        }
+
+        //    }
+
+
+
+        //    if (post.Id == default(int))
+        //    {
+        //        context.Posts.Add(post);
+        //        context.Entry(post).State = EntityState.Added;
+        //    }
+        //    else
+        //    {
+        //        context.Posts.AddOrUpdate(post);
+        //        context.Entry(post).State = EntityState.Modified;
+        //    }
+        //    context.SaveChanges();
+
+        //    return post;
+        //}
 
 
         public IPagedList<Post> ListOfPosts(int postsPerPage, int page)

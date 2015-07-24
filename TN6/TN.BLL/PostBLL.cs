@@ -16,6 +16,8 @@ namespace TN.BLL
         public Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string photoPath)
         {
             BlogRepository _repo = new BlogRepository();
+            TagBLL tagBLL = new TagBLL();
+
 
             Post post = _repo.GetPost(id);
 
@@ -30,48 +32,22 @@ namespace TN.BLL
 
             string newTitle = UrlTitleWithDashes(title);
             newTitle = SanitizedUrlTitle(newTitle);
-
             post.UrlTitle = newTitle;
 
-
             post.Tags.Clear();
+            post.Tags = tagBLL.CreateTag(tags);
 
-            //string[] tagNames = tags.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            //foreach (string tag in tagNames)
-            //{
-            //    Tag tagToIncrement = context.Tags.FirstOrDefault(x => x.Name == tag);
+            List<string> tagList = post.Tags.Select(x => x.Name).ToList();
 
-            //    if (tagToIncrement != null)
-            //    {
-            //        tagToIncrement.TimesTagWasUsed += 1;
-            //        context.Tags.AddOrUpdate(tagToIncrement);
-            //        context.Entry(tagToIncrement).State = EntityState.Modified;
+            if (tagList.Count != 0)
+            {
+                int tagSuccess = _repo.IncrementTags(tagList);
+            }
 
-            //    }
+            bool success = _repo.SavePost(post);
 
-            //    var tagToAdd = post.Tags.Count(x => x.Name == tag);
-            //    if (tagToAdd == 0)
-            //    {
-            //        post.Tags.Add(GetTag(tag));
-            //    }
+            return success ? post : null;
 
-            //}
-
-
-
-            //if (post.Id == default(int))
-            //{
-            //    context.Posts.Add(post);
-            //    context.Entry(post).State = EntityState.Added;
-            //}
-            //else
-            //{
-            //    context.Posts.AddOrUpdate(post);
-            //    context.Entry(post).State = EntityState.Modified;
-            //}
-            //context.SaveChanges();
-
-            return post;
         }
 
 

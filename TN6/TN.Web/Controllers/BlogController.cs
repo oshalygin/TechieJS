@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.WebPages;
 using Microsoft.Ajax.Utilities;
 using PagedList;
+using TN.BLL;
 using TN.BLL.Utility;
 using TN.DAL;
 using TN.Models;
@@ -134,8 +135,9 @@ namespace TN.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                PostBLL postBLL = new PostBLL();
                 string photoPath = ImageUtility.UpdatePhoto(file, ImagePath.BlogPostImage);
-                Post post = _db.UpdatePost(model.Id, model.Title, model.Body, date, tags, photoPath);
+                Post post = postBLL.UpdatePost(model.Id, model.Title, model.Body, date, tags, photoPath);
                 return RedirectToAction("Post", new { UrlTitle = post.UrlTitle });
 
             }

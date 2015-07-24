@@ -9,9 +9,9 @@ namespace TN.DAL
 {
     public interface IBlogRepository
     {
-        Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string file);
+        //Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string file);
 
-        Tag GetTag(string tagName);
+        Tag CreateNewTag(string tagName);
 
         Post GetPost(int? postId);
         IPagedList<Post> ListOfPosts(int pageNumber, int postsPerPage);
