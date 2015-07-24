@@ -77,6 +77,37 @@ namespace TN.DAL
             post.PhotoPath = photoPath;
             post.DateEdited = DateTime.Now;
 
+
+            //Reserved characters
+            title = title.Replace("$", "")
+                .Replace("&", "")
+                .Replace("+", "")
+                .Replace(",", "")
+                .Replace("/", "")
+                .Replace(":", "")
+                .Replace(";", "")
+                .Replace("=", "")
+                .Replace("?", "")
+                .Replace("@", "")
+                //Unsafe unsafe
+                .Replace("<", "")
+                .Replace(">", "")
+                .Replace("#", "")
+                .Replace("%", "")
+                .Replace("{", "")
+                .Replace("}", "")
+                .Replace("|", "")
+                .Replace("\\", "")
+                .Replace("^", "")
+                .Replace("~", "")
+                .Replace("[", "")
+                .Replace("]", "")
+                .Replace("`", "");
+                
+
+
+
+
             string[] titleNames = title.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             var newTitle = new StringBuilder();
 
@@ -84,7 +115,7 @@ namespace TN.DAL
 
             for (int i = 0; i < titleNames.Length; i++)
             {
-                titleNames[i] = titleNames[i].Replace(".","");
+                
                 newTitle.Append(titleNames[i]);
                 if (i != (titleNames.Length - 1))
                 {
@@ -92,7 +123,7 @@ namespace TN.DAL
                 }
             }
 
-            post.UrlTitle = HttpUtility.UrlEncode(newTitle.ToString());
+            post.UrlTitle = newTitle.ToString();
 
 
 
