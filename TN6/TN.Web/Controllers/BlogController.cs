@@ -250,7 +250,9 @@ namespace TN.Web.Controllers
             string postTitle = _db.GetPostTitle(model.PostId);
             if (ModelState.IsValid)
             {
-                _db.SaveComment(model.PostId, model.Name, model.Body, model.Email);
+                CommentBLL commentBLL = CommentBLL.Instance;
+
+                commentBLL.NewComment(model.PostId, model.Name, model.Body, model.Email);
 
                 return RedirectToAction("Post", "Blog", new { UrlTitle = postTitle });
             }

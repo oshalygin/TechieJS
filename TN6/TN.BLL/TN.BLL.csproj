@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentBLL.cs" />
     <Compile Include="Common\DuplicateTitleValidationAttribute.cs" />
     <Compile Include="PostBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

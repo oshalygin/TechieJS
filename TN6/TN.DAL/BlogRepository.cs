@@ -107,122 +107,6 @@ namespace TN.DAL
             return true;
         }
 
-        //public Post UpdatePost(int? id, string title, string body, DateTime date, string tags, string photoPath)
-        //{
-        //    TNDbContext context = DataContext;
-
-        //    Post post = GetPost(id);
-        //    post.Title = title;
-        //    post.Body = body;
-
-        //    post.Preview = body.BlogPreviewTruncate();
-
-        //    post.Date = date;
-        //    post.PhotoPath = photoPath;
-        //    post.DateEdited = DateTime.Now;
-
-
-        //    //Reserved characters
-        //    title = title.Trim()
-        //        //Reserved characters
-        //        .Replace("$", "")
-        //        .Replace("&", "")
-        //        .Replace("+", "")
-        //        .Replace(",", "")
-        //        .Replace("/", "")
-        //        .Replace(":", "")
-        //        .Replace(";", "")
-        //        .Replace("=", "")
-        //        .Replace("?", "")
-        //        .Replace("@", "")
-        //        //Unsafe unsafe
-        //        .Replace("<", "")
-        //        .Replace(">", "")
-        //        .Replace("#", "")
-        //        .Replace("%", "")
-        //        .Replace("{", "")
-        //        .Replace("}", "")
-        //        .Replace("|", "")
-        //        .Replace("\\", "")
-        //        .Replace("^", "")
-        //        .Replace("~", "")
-        //        .Replace("[", "")
-        //        .Replace("]", "")
-        //        .Replace("`", "")
-        //        //Personal choice
-        //        .Replace("*", "")
-        //        .Replace("(", "")
-        //        .Replace(")", "")
-        //        .Replace("_", "")
-        //        .Replace(";", "")
-        //        .Replace("!", "")
-        //        .Replace(":", "")
-        //        .Replace("_", "")
-        //        .Replace("'", "");
-
-
-
-
-
-        //    string[] titleNames = title.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        //    var newTitle = new StringBuilder();
-
-
-
-        //    for (int i = 0; i < titleNames.Length; i++)
-        //    {
-
-        //        newTitle.Append(titleNames[i]);
-        //        if (i != (titleNames.Length - 1))
-        //        {
-        //            newTitle.Append("-");
-        //        }
-        //    }
-
-        //    post.UrlTitle = newTitle.ToString();
-
-
-
-        //    post.Tags.Clear();
-
-        //    string[] tagNames = tags.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        //    foreach (string tag in tagNames)
-        //    {
-        //        Tag tagToIncrement = context.Tags.FirstOrDefault(x => x.Name == tag);
-
-        //        if (tagToIncrement != null)
-        //        {
-        //            tagToIncrement.TimesTagWasUsed += 1;
-        //            context.Tags.AddOrUpdate(tagToIncrement);
-        //            context.Entry(tagToIncrement).State = EntityState.Modified;
-
-        //        }
-
-        //        var tagToAdd = post.Tags.Count(x => x.Name == tag);
-        //        if (tagToAdd == 0)
-        //        {
-        //            post.Tags.Add(CreateNewTag(tag));
-        //        }
-
-        //    }
-
-
-
-        //    if (post.Id == default(int))
-        //    {
-        //        context.Posts.Add(post);
-        //        context.Entry(post).State = EntityState.Added;
-        //    }
-        //    else
-        //    {
-        //        context.Posts.AddOrUpdate(post);
-        //        context.Entry(post).State = EntityState.Modified;
-        //    }
-        //    context.SaveChanges();
-
-        //    return post;
-        //}
-
 
         public IPagedList<Post> ListOfPosts(int postsPerPage, int page)
         {
@@ -258,28 +142,29 @@ namespace TN.DAL
         }
 
 
-        public void SaveComment(int id, string name, string commentBody, string emailAddress)
+        public int SaveComment(Comment newComment, Post existingPost)
         {
             TNDbContext context = DataContext;
-            Comment comment = new Comment();
-            Post post = GetPost(id);
-            post.Views -= 1;
+            //Comment comment = new Comment();
+            //Post post = GetPost(id);
+            //post.Views -= 1;
 
-            comment.Name = name;
-            comment.Body = HttpUtility.HtmlEncode(commentBody);
-            comment.Email = emailAddress;
-            comment.Date = DateTime.Now;
+            //comment.Name = name;
+            //comment.Body = HttpUtility.HtmlEncode(commentBody);
+            //comment.Email = emailAddress;
+            //comment.Date = DateTime.Now;
 
-            if (string.IsNullOrEmpty(emailAddress))
-            {
-                comment.IsAnonymous = true;
-            }
+            //if (string.IsNullOrEmpty(emailAddress))
+            //{
+            //    comment.IsAnonymous = true;
+            //}
 
+            existingPost.Comments.Add(newComment);
 
+            context.Entry(newComment).State = EntityState.Added;
+            context.Entry(existingPost).State = EntityState.Modified;
 
-            post.Comments.Add(comment);
-
-            context.SaveChanges();
+            return context.SaveChanges();
 
         }
 

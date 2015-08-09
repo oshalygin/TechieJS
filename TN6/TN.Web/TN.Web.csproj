@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -391,6 +392,7 @@
     <Content Include="Content\css\themes\orange.css" />
     <Content Include="Content\css\themes\purple.css" />
     <Content Include="Content\css\themes\red.css" />
+    <Content Include="Content\datCaptchaTho.png" />
     <Content Include="Content\img\404.jpg" />
     <Content Include="Content\img\500Error.png" />
     <Content Include="Content\img\background-blur.png" />
