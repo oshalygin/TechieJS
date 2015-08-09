@@ -39,9 +39,15 @@ namespace TN.BLL
 
             List<string> tagList = post.Tags.Select(x => x.Name).ToList();
 
+
             if (tagList.Count != 0)
             {
-                int tagSuccess = _repo.IncrementTags(tagList);
+                if (post.Views == 0)
+                {
+                    int tagSuccess = _repo.IncrementTags(tagList);
+                }
+               
+
             }
 
             if (post.Views > 0)
