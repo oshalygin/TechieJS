@@ -7,7 +7,7 @@ using NUnit.Framework;
 using TN.BLL;
 using TN.Models;
 
-namespace Tests
+namespace TN.Tests
 {
     public class TagBLLTests
     {

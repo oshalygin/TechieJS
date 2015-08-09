@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.Models", "TN.Models\TN.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.Web", "TN.Web\TN.Web.csproj", "{E3B521B1-E5F9-43B3-B4CC-8ECFAC48E996}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{B0684CC3-1DEE-427B-B1CC-F5CAE9210E82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.Tests", "Tests\TN.Tests.csproj", "{B0684CC3-1DEE-427B-B1CC-F5CAE9210E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

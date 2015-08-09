@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using TN.BLL;
 
-namespace Tests
+namespace TN.Tests
 {
     public class PostBLLTests
     {
