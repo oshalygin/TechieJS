@@ -44,6 +44,12 @@ namespace TN.BLL
                 int tagSuccess = _repo.IncrementTags(tagList);
             }
 
+            if (post.Views > 0)
+            {
+                //Stupid logic, should have a different method for UpdatePost and NewPost...ugh.
+                post.Views--;
+            }
+
             bool success = _repo.SavePost(post);
 
             return success ? post : null;
