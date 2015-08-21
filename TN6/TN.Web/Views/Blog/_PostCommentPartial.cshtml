@@ -44,7 +44,7 @@
                 }
                 else
                 {
-                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @readonly = true, placeholder = "Disabled" })
                     @Html.ValidationMessageFor(m => m.Name, null, new { @class = "note note-error" })
                 }
             </div>
@@ -62,7 +62,7 @@
                 }
                 else
                 {
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @readonly = true, placeholder = "Disabled" }) 
                     @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-inline" })
                 }
 
@@ -78,7 +78,7 @@
         <div class="row margin-bottom-20">
             <div class="col-md-11 col-md-offset-0">
 
-                @Html.TextAreaFor(x => x.Body, new { @class = "form-control", rows = "8" })
+                @Html.TextAreaFor(x => x.Body, new { @class = "form-control", rows = "8", @readonly = true, placeholder = "Comments are disabled until I add some validation to stop the bots.  Stay tuned!"})
                 @Html.ValidationMessageFor(m => m.Body, null, new { @class = "help-inline" })
             </div>
         </div>
