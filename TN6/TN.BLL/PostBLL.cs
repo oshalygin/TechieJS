@@ -79,6 +79,7 @@ namespace TN.BLL
                 .Replace("=", "")
                 .Replace("?", "")
                 .Replace("@", "")
+                .Replace(".", "")
                 //Unsafe unsafe
                 .Replace("<", "")
                 .Replace(">", "")
@@ -97,7 +98,6 @@ namespace TN.BLL
                 .Replace("*", "")
                 .Replace("(", "")
                 .Replace(")", "")
-                .Replace("_", "")
                 .Replace(";", "")
                 .Replace("!", "")
                 .Replace(":", "")
@@ -112,7 +112,6 @@ namespace TN.BLL
             string titleWithDashes = preSanitizedUrlTitle.Replace(" ", "-");
 
             return titleWithDashes;
-
 
         }
     }
