@@ -182,6 +182,8 @@ namespace TN.Web.Controllers
         [HttpGet]
         public ActionResult EditComment(int id)
         {
+
+            return null;
             Comment model = _db.GetComment(id);
             return View(model);
         }
@@ -189,6 +191,7 @@ namespace TN.Web.Controllers
         [HttpPost]
         public ActionResult EditComment(int id, string body)
         {
+            return null;
             if (ModelState.IsValid)
             {
                 Comment repoComment = _db.GetComment(id);
@@ -222,6 +225,7 @@ namespace TN.Web.Controllers
         [ChildActionOnly]
         public ActionResult NewComment(int? postId)
         {
+            return null;
 
             CommentViewModel viewModel = new CommentViewModel();
             var modelstate = new List<string>();
@@ -246,6 +250,8 @@ namespace TN.Web.Controllers
         [HttpPost]
         public ActionResult NewComment(CommentViewModel model)
         {
+
+            return null;
 
             string postTitle = _db.GetPostTitle(model.PostId);
             if (ModelState.IsValid)
