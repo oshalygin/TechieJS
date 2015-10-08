@@ -8,7 +8,6 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using PagedList;
-using TN.BLL.Utility;
 using TN.Models;
 
 namespace TN.DAL

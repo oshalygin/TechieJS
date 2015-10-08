@@ -23,8 +23,8 @@ namespace TN.Tests
             string result = "And-were-live-Kicking-off-with-the-gas-all-the-way-down";
 
             Assert.That(sut, Is.EqualTo(result));
-
         }
+
         [Test]
         public void PostTitleAddedDashes()
         {
@@ -37,11 +37,8 @@ namespace TN.Tests
             string result = "And-we're-live!-Kicking-off-with-the-gas-all-the-way-down!";
 
             Console.WriteLine(sut);
-            
-            Assert.That(sut,Is.EqualTo(result));
 
-
+            Assert.That(sut, Is.EqualTo(result));
         }
-
     }
 }

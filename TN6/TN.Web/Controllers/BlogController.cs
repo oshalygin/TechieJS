@@ -183,7 +183,6 @@ namespace TN.Web.Controllers
         public ActionResult EditComment(int id)
         {
 
-            return null;
             Comment model = _db.GetComment(id);
             return View(model);
         }
@@ -225,7 +224,6 @@ namespace TN.Web.Controllers
         [ChildActionOnly]
         public ActionResult NewComment(int? postId)
         {
-            return null;
 
             CommentViewModel viewModel = new CommentViewModel();
             var modelstate = new List<string>();
