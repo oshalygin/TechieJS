@@ -102,6 +102,7 @@ namespace TN.BLL
                 .Replace("!", "")
                 .Replace(":", "")
                 .Replace("_", "")
+                .Replace(@"""","")
                 .Replace("'", "");
 
             return sanitizedTitle;
