@@ -31,6 +31,23 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.SocialMediaReferences",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TwitterId = c.String(),
+                        FacebookId = c.String(),
+                        SkypeId = c.String(),
+                        GooglePlusId = c.String(),
+                        TwitterIdLastUpdated = c.DateTime(),
+                        FacebookIdLastUpdated = c.DateTime(),
+                        SkypeIdLastUpdated = c.DateTime(),
+                        GooglePlusIdLastUpdated = c.DateTime(),
+                        UserId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -45,9 +62,13 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
                         EmailAddress = c.String(),
                         Phone = c.String(),
                         Company = c.String(),
+                        Title = c.String(),
                         Age = c.Int(nullable: false),
+                        PhotoPath = c.String(),
                         AcceptsTerms = c.Boolean(nullable: false),
                         AcceptsPrivacyPolicy = c.Boolean(nullable: false),
+                        Description = c.String(),
+                        DateUserDetailsUpdated = c.DateTime(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -105,6 +126,7 @@ namespace TN.DAL.DataContexts.IdentityDbMigrations
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.SocialMediaReferences");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
         }

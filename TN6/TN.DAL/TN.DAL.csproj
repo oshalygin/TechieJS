@@ -96,14 +96,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogRepository.cs" />
-    <Compile Include="DataContexts\IdentityDbMigrations\201409220150035_InitialCreate.cs" />
-    <Compile Include="DataContexts\IdentityDbMigrations\201409220150035_InitialCreate.Designer.cs">
-      <DependentUpon>201409220150035_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityDbMigrations\201606290640125_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityDbMigrations\201606290640125_InitialCreate.Designer.cs">
+      <DependentUpon>201606290640125_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityDbMigrations\Configuration.cs" />
-    <Compile Include="DataContexts\TNDbContext\201409220150276_InitialCreate.cs" />
-    <Compile Include="DataContexts\TNDbContext\201409220150276_InitialCreate.Designer.cs">
-      <DependentUpon>201409220150276_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\TNDbContext\201606290642005_InitialCreate.cs" />
+    <Compile Include="DataContexts\TNDbContext\201606290642005_InitialCreate.Designer.cs">
+      <DependentUpon>201606290642005_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\TNDbContext\Configuration.cs" />
     <Compile Include="IBlogRepository.cs" />
@@ -123,13 +123,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\IdentityDbMigrations\201409220150035_InitialCreate.resx">
-      <DependentUpon>201409220150035_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityDbMigrations\201606290640125_InitialCreate.resx">
+      <DependentUpon>201606290640125_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\TNDbContext\201409220150276_InitialCreate.resx">
-      <DependentUpon>201409220150276_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\TNDbContext\201606290642005_InitialCreate.resx">
+      <DependentUpon>201606290642005_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

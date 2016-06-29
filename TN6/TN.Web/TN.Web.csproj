@@ -235,6 +235,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Web.config.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web.config.designer.cs">
+      <DependentUpon>Web.config.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bundles\js\jquery-1.7.2.min.js" />
@@ -895,6 +901,9 @@
     <Content Include="Content\css\plugins\sky-forms\version-2.0.1\icons\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\LocalDebug.pubxml" />
     <None Include="Properties\PublishProfiles\oshalygin.pubxml" />
+    <None Include="Properties\PublishProfiles\TechieJs - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\TechieJs - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\techiejs.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\techiejs.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\forms\sky-forms-ie8.js" />

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitter.BLL", "Twitter.BLL\Twitter.BLL.csproj", "{7AAF3F6E-CB1E-45B3-B970-B42106D1E301}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.Web", "TN.Web\TN.Web.csproj", "{E3B521B1-E5F9-43B3-B4CC-8ECFAC48E996}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.Tests", "Tests\TN.Tests.csproj", "{B0684CC3-1DEE-427B-B1CC-F5CAE9210E82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlScripts", "SqlScripts\SqlScripts.csproj", "{58A56ECC-96F5-4FCE-9234-CDFAF61FA068}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{B0684CC3-1DEE-427B-B1CC-F5CAE9210E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0684CC3-1DEE-427B-B1CC-F5CAE9210E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0684CC3-1DEE-427B-B1CC-F5CAE9210E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A56ECC-96F5-4FCE-9234-CDFAF61FA068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A56ECC-96F5-4FCE-9234-CDFAF61FA068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A56ECC-96F5-4FCE-9234-CDFAF61FA068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A56ECC-96F5-4FCE-9234-CDFAF61FA068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

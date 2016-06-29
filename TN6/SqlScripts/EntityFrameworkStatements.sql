@@ -1,0 +1,2 @@
+﻿--update-database -ConfigurationTypeName TN.DAL.DataContexts.IdentityDbMigrations.Configuration -Verbose -Force-->
+--update-database -ConfigurationTypeName TN.DAL.DataContexts.TNDbContext.Configuration -Verbose -Force-->
